@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using RandoX.Data.Models.ProductModel;
 using RandoX.Service.Interfaces;
 
 namespace RandoX.API.Controllers
 {
+    [Authorize]
     public class ProductController : BaseAPIController
     {
         private readonly IProductService _productService;

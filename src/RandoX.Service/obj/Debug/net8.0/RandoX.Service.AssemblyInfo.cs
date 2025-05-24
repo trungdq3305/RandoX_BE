@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RandoX.Service")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fe5c7161647d93bd86698c22ff9b8706ecd505a5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d3237856c780f0c0583e3bf8a1580c8dc514990")]
 [assembly: System.Reflection.AssemblyProductAttribute("RandoX.Service")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RandoX.Service")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

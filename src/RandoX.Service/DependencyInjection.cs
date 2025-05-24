@@ -16,6 +16,7 @@ namespace RandoX.Service
         public static IServiceCollection AddService(this IServiceCollection service)
         {
             service.AddTransient<IProductService, ProductService>();
+            service.AddTransient<IAccountService, AccountService>();
             return service;
         }
     }
