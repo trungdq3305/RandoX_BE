@@ -119,19 +119,21 @@ CREATE TABLE cart (
     is_deleted BIT DEFAULT 0
 );
 -- 13. Order
+
 CREATE TABLE `order` (
     id VARCHAR(36) PRIMARY KEY DEFAULT (UUID()),
+    cart_id VARCHAR(36),
     total_amount DECIMAL(12,2),
     shipping_cost DECIMAL(12,2),
     account_id VARCHAR(36),
     voucher_id VARCHAR(36),
-    FOREIGN KEY (account_id) REFERENCES account(id),
-    FOREIGN KEY (voucher_id) REFERENCES voucher(id),
-    FOREIGN KEY (id) REFERENCES cart(id) ON DELETE CASCADE,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     deleted_at DATETIME NULL,
-    is_deleted BIT DEFAULT 0
+    is_deleted BIT DEFAULT 0,
+    FOREIGN KEY (account_id) REFERENCES account(id),
+    FOREIGN KEY (voucher_id) REFERENCES voucher(id),
+    FOREIGN KEY (cart_id) REFERENCES cart(id) ON DELETE CASCADE
 );
 -- 8. Transaction
 CREATE TABLE transaction (

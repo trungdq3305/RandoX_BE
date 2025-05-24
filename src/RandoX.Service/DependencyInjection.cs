@@ -17,6 +17,7 @@ namespace RandoX.Service
         {
             service.AddTransient<IProductService, ProductService>();
             service.AddTransient<IAccountService, AccountService>();
+            service.AddTransient<IImageService, ImageService>();
             return service;
         }
     }
