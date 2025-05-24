@@ -9,6 +9,8 @@ public partial class Order
 {
     public string Id { get; set; }
 
+    public string CartId { get; set; }
+
     public decimal? TotalAmount { get; set; }
 
     public decimal? ShippingCost { get; set; }
@@ -27,7 +29,7 @@ public partial class Order
 
     public virtual Account Account { get; set; }
 
-    public virtual Cart IdNavigation { get; set; }
+    public virtual Cart Cart { get; set; }
 
     public virtual ICollection<Image> Images { get; set; } = new List<Image>();
 

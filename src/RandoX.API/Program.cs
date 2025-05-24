@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using RandoX.API.Helper;
 using RandoX.Data;
 using RandoX.Data.DBContext;
 using RandoX.Service;
@@ -77,6 +78,12 @@ builder.Services.AddSwaggerGen(option =>
             new string[]{}
         }
     });
+});
+
+builder.Services.AddSingleton<S3Service>(sp =>
+{
+    var config = sp.GetRequiredService<IConfiguration>();
+    return new S3Service(config);
 });
 
 var app = builder.Build();

@@ -23,5 +23,5 @@ public partial class Cart
 
     public virtual Account IdNavigation { get; set; }
 
-    public virtual Order Order { get; set; }
+    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 }
