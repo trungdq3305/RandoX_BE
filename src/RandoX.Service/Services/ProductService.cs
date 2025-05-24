@@ -87,7 +87,7 @@ namespace RandoX.Service.Services
                     IsSuccess = true,
                     Code = (int)HttpStatusCode.OK,
                     Data = productResponse,
-                    Message = "Create new product successfully!"
+                    Message = "Create new product successfully"
                 };
             }
             catch (Exception ex)
