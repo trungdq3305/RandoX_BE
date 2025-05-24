@@ -2617,11 +2617,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\RandoX.Data.csproj",
+      "projectUniqueName": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\RandoX.Data.csproj",
       "projectName": "RandoX.Data",
-      "projectPath": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\RandoX.Data.csproj",
+      "projectPath": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\RandoX.Data.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\obj\\",
+      "outputPath": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

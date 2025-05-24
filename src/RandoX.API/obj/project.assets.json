@@ -1740,11 +1740,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\My Works\\Code\\RandoX\\src\\RandoX.API\\RandoX.API.csproj",
+      "projectUniqueName": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.API\\RandoX.API.csproj",
       "projectName": "RandoX.API",
-      "projectPath": "D:\\My Works\\Code\\RandoX\\src\\RandoX.API\\RandoX.API.csproj",
+      "projectPath": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.API\\RandoX.API.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\My Works\\Code\\RandoX\\src\\RandoX.API\\obj\\",
+      "outputPath": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1767,8 +1767,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\My Works\\Code\\RandoX\\src\\RandoX.Service\\RandoX.Service.csproj": {
-              "projectPath": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Service\\RandoX.Service.csproj"
+            "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Service\\RandoX.Service.csproj": {
+              "projectPath": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Service\\RandoX.Service.csproj"
             }
           }
         }

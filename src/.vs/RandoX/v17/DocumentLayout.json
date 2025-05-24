@@ -1,81 +1,81 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\My Works\\Code\\RandoX\\src\\",
+  "WorkspaceRootPath": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|d:\\my works\\code\\randox\\src\\randox.data\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|solutionrelative:randox.data\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|d:\\my works\\code\\randox\\src\\randox.data\\repositories\\voucherrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|solutionrelative:randox.data\\repositories\\voucherrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BF6AB87-A982-4EDC-84EF-B5C1C97B08F0}|RandoX.API\\RandoX.API.csproj|d:\\my works\\code\\randox\\src\\randox.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BF6AB87-A982-4EDC-84EF-B5C1C97B08F0}|RandoX.API\\RandoX.API.csproj|solutionrelative:randox.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BF6AB87-A982-4EDC-84EF-B5C1C97B08F0}|RandoX.API\\RandoX.API.csproj|d:\\my works\\code\\randox\\src\\randox.api\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BF6AB87-A982-4EDC-84EF-B5C1C97B08F0}|RandoX.API\\RandoX.API.csproj|solutionrelative:randox.api\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6B84DB54-4DC9-431D-9194-D72C010D1BCD}|RandoX.Service\\RandoX.Service.csproj|d:\\my works\\code\\randox\\src\\randox.service\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6B84DB54-4DC9-431D-9194-D72C010D1BCD}|RandoX.Service\\RandoX.Service.csproj|d:\\my works\\code\\exe\\randox_be\\src\\randox.service\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6B84DB54-4DC9-431D-9194-D72C010D1BCD}|RandoX.Service\\RandoX.Service.csproj|solutionrelative:randox.service\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|d:\\my works\\code\\randox\\src\\randox.data\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8BF6AB87-A982-4EDC-84EF-B5C1C97B08F0}|RandoX.API\\RandoX.API.csproj|d:\\my works\\code\\exe\\randox_be\\src\\randox.api\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BF6AB87-A982-4EDC-84EF-B5C1C97B08F0}|RandoX.API\\RandoX.API.csproj|solutionrelative:randox.api\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|d:\\my works\\code\\exe\\randox_be\\src\\randox.data\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|solutionrelative:randox.data\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|d:\\my works\\code\\exe\\randox_be\\src\\randox.data\\repositories\\voucherrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|solutionrelative:randox.data\\repositories\\voucherrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BF6AB87-A982-4EDC-84EF-B5C1C97B08F0}|RandoX.API\\RandoX.API.csproj|d:\\my works\\code\\exe\\randox_be\\src\\randox.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BF6AB87-A982-4EDC-84EF-B5C1C97B08F0}|RandoX.API\\RandoX.API.csproj|solutionrelative:randox.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|d:\\my works\\code\\exe\\randox_be\\src\\randox.data\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|solutionrelative:randox.data\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|d:\\my works\\code\\randox\\src\\randox.data\\models\\productmodel\\productresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|d:\\my works\\code\\exe\\randox_be\\src\\randox.data\\models\\productmodel\\productresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|solutionrelative:randox.data\\models\\productmodel\\productresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|d:\\my works\\code\\randox\\src\\randox.data\\bases\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|d:\\my works\\code\\exe\\randox_be\\src\\randox.data\\bases\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|solutionrelative:randox.data\\bases\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|d:\\my works\\code\\randox\\src\\randox.data\\bases\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|d:\\my works\\code\\exe\\randox_be\\src\\randox.data\\bases\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|solutionrelative:randox.data\\bases\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|d:\\my works\\code\\randox\\src\\randox.data\\bases\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|d:\\my works\\code\\exe\\randox_be\\src\\randox.data\\bases\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|solutionrelative:randox.data\\bases\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|d:\\my works\\code\\randox\\src\\randox.data\\bases\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|d:\\my works\\code\\exe\\randox_be\\src\\randox.data\\bases\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|solutionrelative:randox.data\\bases\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|d:\\my works\\code\\randox\\src\\randox.data\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|d:\\my works\\code\\exe\\randox_be\\src\\randox.data\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|solutionrelative:randox.data\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|d:\\my works\\code\\randox\\src\\randox.data\\models\\productmodel\\productrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|d:\\my works\\code\\exe\\randox_be\\src\\randox.data\\models\\productmodel\\productrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|solutionrelative:randox.data\\models\\productmodel\\productrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|d:\\my works\\code\\randox\\src\\randox.data\\dbcontext\\randox_dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|d:\\my works\\code\\exe\\randox_be\\src\\randox.data\\dbcontext\\randox_dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|solutionrelative:randox.data\\dbcontext\\randox_dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B84DB54-4DC9-431D-9194-D72C010D1BCD}|RandoX.Service\\RandoX.Service.csproj|d:\\my works\\code\\randox\\src\\randox.service\\interfaces\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6B84DB54-4DC9-431D-9194-D72C010D1BCD}|RandoX.Service\\RandoX.Service.csproj|d:\\my works\\code\\exe\\randox_be\\src\\randox.service\\interfaces\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6B84DB54-4DC9-431D-9194-D72C010D1BCD}|RandoX.Service\\RandoX.Service.csproj|solutionrelative:randox.service\\interfaces\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B84DB54-4DC9-431D-9194-D72C010D1BCD}|RandoX.Service\\RandoX.Service.csproj|d:\\my works\\code\\randox\\src\\randox.service\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6B84DB54-4DC9-431D-9194-D72C010D1BCD}|RandoX.Service\\RandoX.Service.csproj|d:\\my works\\code\\exe\\randox_be\\src\\randox.service\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6B84DB54-4DC9-431D-9194-D72C010D1BCD}|RandoX.Service\\RandoX.Service.csproj|solutionrelative:randox.service\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|d:\\my works\\code\\randox\\src\\randox.data\\interfaces\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|d:\\my works\\code\\exe\\randox_be\\src\\randox.data\\interfaces\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|solutionrelative:randox.data\\interfaces\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|d:\\my works\\code\\randox\\src\\randox.data\\entities\\cartproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|d:\\my works\\code\\exe\\randox_be\\src\\randox.data\\entities\\cartproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85BD339F-FEF8-445D-A2D6-6FF592A6CA59}|RandoX.Data\\RandoX.Data.csproj|solutionrelative:randox.data\\entities\\cartproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8BF6AB87-A982-4EDC-84EF-B5C1C97B08F0}|RandoX.API\\RandoX.API.csproj|d:\\my works\\code\\randox\\src\\randox.api\\controllers\\baseapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8BF6AB87-A982-4EDC-84EF-B5C1C97B08F0}|RandoX.API\\RandoX.API.csproj|d:\\my works\\code\\exe\\randox_be\\src\\randox.api\\controllers\\baseapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8BF6AB87-A982-4EDC-84EF-B5C1C97B08F0}|RandoX.API\\RandoX.API.csproj|solutionrelative:randox.api\\controllers\\baseapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -86,7 +86,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 16,
+          "SelectedChildIndex": 21,
           "Children": [
             {
               "$type": "Bookmark",
@@ -116,9 +116,9 @@
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "IUnitOfWork.cs",
-              "DocumentMoniker": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\Bases\\IUnitOfWork.cs",
+              "DocumentMoniker": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\Bases\\IUnitOfWork.cs",
               "RelativeDocumentMoniker": "RandoX.Data\\Bases\\IUnitOfWork.cs",
-              "ToolTip": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\Bases\\IUnitOfWork.cs",
+              "ToolTip": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\Bases\\IUnitOfWork.cs",
               "RelativeToolTip": "RandoX.Data\\Bases\\IUnitOfWork.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -128,9 +128,9 @@
               "$type": "Document",
               "DocumentIndex": 10,
               "Title": "UnitOfWork.cs",
-              "DocumentMoniker": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\Bases\\UnitOfWork.cs",
+              "DocumentMoniker": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\Bases\\UnitOfWork.cs",
               "RelativeDocumentMoniker": "RandoX.Data\\Bases\\UnitOfWork.cs",
-              "ToolTip": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\Bases\\UnitOfWork.cs",
+              "ToolTip": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\Bases\\UnitOfWork.cs",
               "RelativeToolTip": "RandoX.Data\\Bases\\UnitOfWork.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAuwBIAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -140,9 +140,9 @@
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "Repository.cs",
-              "DocumentMoniker": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\Bases\\Repository.cs",
+              "DocumentMoniker": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\Bases\\Repository.cs",
               "RelativeDocumentMoniker": "RandoX.Data\\Bases\\Repository.cs",
-              "ToolTip": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\Bases\\Repository.cs",
+              "ToolTip": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\Bases\\Repository.cs",
               "RelativeToolTip": "RandoX.Data\\Bases\\Repository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAF0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -152,9 +152,9 @@
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "IRepository.cs",
-              "DocumentMoniker": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\Bases\\IRepository.cs",
+              "DocumentMoniker": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\Bases\\IRepository.cs",
               "RelativeDocumentMoniker": "RandoX.Data\\Bases\\IRepository.cs",
-              "ToolTip": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\Bases\\IRepository.cs",
+              "ToolTip": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\Bases\\IRepository.cs",
               "RelativeToolTip": "RandoX.Data\\Bases\\IRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -164,9 +164,9 @@
               "$type": "Document",
               "DocumentIndex": 13,
               "Title": "randox_dbContext.cs",
-              "DocumentMoniker": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\DBContext\\randox_dbContext.cs",
+              "DocumentMoniker": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\DBContext\\randox_dbContext.cs",
               "RelativeDocumentMoniker": "RandoX.Data\\DBContext\\randox_dbContext.cs",
-              "ToolTip": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\DBContext\\randox_dbContext.cs",
+              "ToolTip": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\DBContext\\randox_dbContext.cs",
               "RelativeToolTip": "RandoX.Data\\DBContext\\randox_dbContext.cs",
               "ViewState": "AgIAAJ4BAAAAAAAAAAAqwFMAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -176,9 +176,9 @@
               "$type": "Document",
               "DocumentIndex": 17,
               "Title": "CartProduct.cs",
-              "DocumentMoniker": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\Entities\\CartProduct.cs",
+              "DocumentMoniker": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\Entities\\CartProduct.cs",
               "RelativeDocumentMoniker": "RandoX.Data\\Entities\\CartProduct.cs",
-              "ToolTip": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\Entities\\CartProduct.cs",
+              "ToolTip": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\Entities\\CartProduct.cs",
               "RelativeToolTip": "RandoX.Data\\Entities\\CartProduct.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -186,11 +186,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
-              "DocumentMoniker": "D:\\My Works\\Code\\RandoX\\src\\RandoX.API\\Program.cs",
+              "DocumentMoniker": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.API\\Program.cs",
               "RelativeDocumentMoniker": "RandoX.API\\Program.cs",
-              "ToolTip": "D:\\My Works\\Code\\RandoX\\src\\RandoX.API\\Program.cs",
+              "ToolTip": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.API\\Program.cs",
               "RelativeToolTip": "RandoX.API\\Program.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAAwB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -198,11 +198,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "VoucherRepository.cs",
-              "DocumentMoniker": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\Repositories\\VoucherRepository.cs",
+              "DocumentMoniker": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\Repositories\\VoucherRepository.cs",
               "RelativeDocumentMoniker": "RandoX.Data\\Repositories\\VoucherRepository.cs",
-              "ToolTip": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\Repositories\\VoucherRepository.cs",
+              "ToolTip": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\Repositories\\VoucherRepository.cs",
               "RelativeToolTip": "RandoX.Data\\Repositories\\VoucherRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -212,9 +212,9 @@
               "$type": "Document",
               "DocumentIndex": 16,
               "Title": "IProductRepository.cs",
-              "DocumentMoniker": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\Interfaces\\IProductRepository.cs",
+              "DocumentMoniker": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\Interfaces\\IProductRepository.cs",
               "RelativeDocumentMoniker": "RandoX.Data\\Interfaces\\IProductRepository.cs",
-              "ToolTip": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\Interfaces\\IProductRepository.cs",
+              "ToolTip": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\Interfaces\\IProductRepository.cs",
               "RelativeToolTip": "RandoX.Data\\Interfaces\\IProductRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAsAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -224,9 +224,9 @@
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "ProductRepository.cs",
-              "DocumentMoniker": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\Repositories\\ProductRepository.cs",
+              "DocumentMoniker": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\Repositories\\ProductRepository.cs",
               "RelativeDocumentMoniker": "RandoX.Data\\Repositories\\ProductRepository.cs",
-              "ToolTip": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\Repositories\\ProductRepository.cs",
+              "ToolTip": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\Repositories\\ProductRepository.cs",
               "RelativeToolTip": "RandoX.Data\\Repositories\\ProductRepository.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAYwC8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -234,11 +234,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\DependencyInjection.cs",
+              "DocumentMoniker": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\DependencyInjection.cs",
               "RelativeDocumentMoniker": "RandoX.Data\\DependencyInjection.cs",
-              "ToolTip": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\DependencyInjection.cs",
+              "ToolTip": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\DependencyInjection.cs",
               "RelativeToolTip": "RandoX.Data\\DependencyInjection.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -249,9 +249,9 @@
               "$type": "Document",
               "DocumentIndex": 15,
               "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Service\\DependencyInjection.cs",
+              "DocumentMoniker": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Service\\DependencyInjection.cs",
               "RelativeDocumentMoniker": "RandoX.Service\\DependencyInjection.cs",
-              "ToolTip": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Service\\DependencyInjection.cs",
+              "ToolTip": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Service\\DependencyInjection.cs",
               "RelativeToolTip": "RandoX.Service\\DependencyInjection.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -259,23 +259,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "ProductController.cs",
-              "DocumentMoniker": "D:\\My Works\\Code\\RandoX\\src\\RandoX.API\\Controllers\\ProductController.cs",
+              "DocumentMoniker": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.API\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "RandoX.API\\Controllers\\ProductController.cs",
-              "ToolTip": "D:\\My Works\\Code\\RandoX\\src\\RandoX.API\\Controllers\\ProductController.cs",
+              "ToolTip": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.API\\Controllers\\ProductController.cs",
               "RelativeToolTip": "RandoX.API\\Controllers\\ProductController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAxwBwAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAABwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T12:07:31.868Z"
+              "WhenOpened": "2025-05-23T12:07:31.868Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 18,
               "Title": "BaseAPIController.cs",
-              "DocumentMoniker": "D:\\My Works\\Code\\RandoX\\src\\RandoX.API\\Controllers\\BaseAPIController.cs",
+              "DocumentMoniker": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.API\\Controllers\\BaseAPIController.cs",
               "RelativeDocumentMoniker": "RandoX.API\\Controllers\\BaseAPIController.cs",
-              "ToolTip": "D:\\My Works\\Code\\RandoX\\src\\RandoX.API\\Controllers\\BaseAPIController.cs",
+              "ToolTip": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.API\\Controllers\\BaseAPIController.cs",
               "RelativeToolTip": "RandoX.API\\Controllers\\BaseAPIController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -285,9 +286,9 @@
               "$type": "Document",
               "DocumentIndex": 14,
               "Title": "IProductService.cs",
-              "DocumentMoniker": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Service\\Interfaces\\IProductService.cs",
+              "DocumentMoniker": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Service\\Interfaces\\IProductService.cs",
               "RelativeDocumentMoniker": "RandoX.Service\\Interfaces\\IProductService.cs",
-              "ToolTip": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Service\\Interfaces\\IProductService.cs",
+              "ToolTip": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Service\\Interfaces\\IProductService.cs",
               "RelativeToolTip": "RandoX.Service\\Interfaces\\IProductService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -295,23 +296,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "ProductService.cs",
-              "DocumentMoniker": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Service\\Services\\ProductService.cs",
+              "DocumentMoniker": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Service\\Services\\ProductService.cs",
               "RelativeDocumentMoniker": "RandoX.Service\\Services\\ProductService.cs",
-              "ToolTip": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Service\\Services\\ProductService.cs",
-              "RelativeToolTip": "RandoX.Service\\Services\\ProductService.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAAwFgAAAAqAAAAAAAAAA==",
+              "ToolTip": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Service\\Services\\ProductService.cs*",
+              "RelativeToolTip": "RandoX.Service\\Services\\ProductService.cs*",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAAwFkAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T11:57:01.874Z"
+              "WhenOpened": "2025-05-23T11:57:01.874Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "ProductResponse.cs",
-              "DocumentMoniker": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\Models\\ProductModel\\ProductResponse.cs",
+              "DocumentMoniker": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\Models\\ProductModel\\ProductResponse.cs",
               "RelativeDocumentMoniker": "RandoX.Data\\Models\\ProductModel\\ProductResponse.cs",
-              "ToolTip": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\Models\\ProductModel\\ProductResponse.cs",
+              "ToolTip": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\Models\\ProductModel\\ProductResponse.cs",
               "RelativeToolTip": "RandoX.Data\\Models\\ProductModel\\ProductResponse.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -321,9 +323,9 @@
               "$type": "Document",
               "DocumentIndex": 12,
               "Title": "ProductRequest.cs",
-              "DocumentMoniker": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\Models\\ProductModel\\ProductRequest.cs",
+              "DocumentMoniker": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\Models\\ProductModel\\ProductRequest.cs",
               "RelativeDocumentMoniker": "RandoX.Data\\Models\\ProductModel\\ProductRequest.cs",
-              "ToolTip": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\Models\\ProductModel\\ProductRequest.cs",
+              "ToolTip": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\Models\\ProductModel\\ProductRequest.cs",
               "RelativeToolTip": "RandoX.Data\\Models\\ProductModel\\ProductRequest.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAzwBMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -333,9 +335,9 @@
               "$type": "Document",
               "DocumentIndex": 11,
               "Title": "Product.cs",
-              "DocumentMoniker": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\Entities\\Product.cs",
+              "DocumentMoniker": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\Entities\\Product.cs",
               "RelativeDocumentMoniker": "RandoX.Data\\Entities\\Product.cs",
-              "ToolTip": "D:\\My Works\\Code\\RandoX\\src\\RandoX.Data\\Entities\\Product.cs",
+              "ToolTip": "D:\\My Works\\Code\\EXE\\RandoX_BE\\src\\RandoX.Data\\Entities\\Product.cs",
               "RelativeToolTip": "RandoX.Data\\Entities\\Product.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
