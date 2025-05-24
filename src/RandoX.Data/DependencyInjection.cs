@@ -18,6 +18,8 @@ namespace RandoX.Data
             service.AddTransient(typeof(IRepository<>), typeof(Repository<>));
             service.AddTransient<IProductRepository, ProductRepository>();
             service.AddTransient<IAccountRepository, AccountRepository>();
+            service.AddTransient<IImageRepository, ImageRepository>();
+            service.AddTransient<IVoucherRepository, VoucherRepository>();
             return service;
         }
     }
