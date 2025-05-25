@@ -29,7 +29,7 @@ namespace RandoX.Data.Repositories
             if (pageSize <= 0 || pageSize > 100) pageSize = 20;
             if (pageNumber < 1) pageNumber = 1;
 
-            var products = await _context.Products
+            var products = await Entities
                 .Include(p => p.Manufacturer).Include(p => p.ProductSet)
                 .Include(p => p.Promotion)
                 .Skip((pageNumber - 1) * pageSize)

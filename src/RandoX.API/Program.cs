@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using RandoX.API;
 using RandoX.API.Helper;
 using RandoX.Data;
 using RandoX.Data.DBContext;
@@ -85,6 +86,13 @@ builder.Services.AddSingleton<S3Service>(sp =>
     var config = sp.GetRequiredService<IConfiguration>();
     return new S3Service(config);
 });
+
+// VNPay Configuration
+builder.Services.Configure<VNPayConfig>(builder.Configuration.GetSection("VNPay"));
+builder.Services.AddScoped<IVNPayService, VNPayService>();
+
+// Logging
+builder.Services.AddLogging();
 
 var app = builder.Build();
 
