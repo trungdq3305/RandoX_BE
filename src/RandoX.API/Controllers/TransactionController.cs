@@ -3,13 +3,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RandoX.Data.DBContext;
 using RandoX.Data.Entities;
+using RandoX.Service.Helper;
 using RandoX.Service.Interfaces;
 using System.ComponentModel.DataAnnotations;
 
 namespace RandoX.API.Controllers
 {
     public class TransactionController : BaseAPIController
-    {
+    { 
         private readonly IVNPayService _vnPayService;
         private readonly randox_dbContext _dbContext;
         private readonly ILogger<TransactionController> _logger;

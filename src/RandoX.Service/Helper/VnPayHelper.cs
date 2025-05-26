@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using RandoX.Data.DBContext;
 using RandoX.Data.Entities;
@@ -6,7 +8,7 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace RandoX.API
+namespace RandoX.Service.Helper
 {
     // 1. VNPay Configuration Model
     public class VNPayConfig
@@ -41,7 +43,7 @@ namespace RandoX.API
     {
         public string vnp_Amount { get; set; }
         public string vnp_BankCode { get; set; }
-        //public string vnp_BankTranNo { get; set; }
+        public string vnp_BankTranNo { get; set; }
         public string vnp_CardType { get; set; }
         public string vnp_OrderInfo { get; set; }
         public string vnp_PayDate { get; set; }
