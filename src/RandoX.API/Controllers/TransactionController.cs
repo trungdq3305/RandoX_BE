@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RandoX.Data.DBContext;
 using RandoX.Data.Entities;
-using RandoX.Service.Helper;
+using RandoX.Common;
 using RandoX.Service.Interfaces;
 using System.ComponentModel.DataAnnotations;
 
@@ -138,12 +138,14 @@ namespace RandoX.API.Controllers
                 {
                     Success = returnData.vnp_ResponseCode == "00",
                     OrderId = returnData.vnp_TxnRef,
-                    TransactionId = returnData.vnp_TransactionNo,
+                    TransactionId = returnData.vnp_TransactionNo ?? returnData.vnp_TxnRef, // Fallback nếu không có vnp_TransactionNo
                     Amount = decimal.Parse(returnData.vnp_Amount) / 100,
                     ResponseCode = returnData.vnp_ResponseCode,
                     Status = transaction.TransactionStatus?.Id,
                     Message = GetResponseMessage(returnData.vnp_ResponseCode),
-                    PaymentDate = returnData.vnp_PayDate
+                    PaymentDate = returnData.vnp_PayDate, // Có thể null nếu thanh toán thất bại
+                    BankCode = returnData.vnp_BankCode, // Có thể null
+                    BankTransactionNo = returnData.vnp_BankTranNo // Có thể null
                 };
 
                 return Ok(response);

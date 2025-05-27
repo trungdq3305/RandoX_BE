@@ -10,6 +10,6 @@ namespace RandoX.Data.Interfaces
     public interface IProductRepository
     {
         Task<Product> CreateProductAsync(Product product);
-        Task<IEnumerable<Product>> GetAllProductsAsync(int pageNumber, int pageSize);
+        Task<IEnumerable<Product>> GetAllProductsAsync();
     }
 }

@@ -1,10 +1,12 @@
-﻿using RandoX.Data.Entities;
+﻿using RandoX.Common;
+using RandoX.Data.Entities;
 using RandoX.Data.Interfaces;
 using RandoX.Data.Models;
 using RandoX.Data.Models.ProductModel;
 using RandoX.Service.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -15,7 +17,6 @@ namespace RandoX.Service.Services
     public class ProductService : IProductService
     {
         private readonly IProductRepository _productRepository;
-
         public ProductService(IProductRepository productRepository)
         {
             _productRepository = productRepository;
@@ -30,14 +31,15 @@ namespace RandoX.Service.Services
             };
             try
             {
-                var products = await _productRepository.GetAllProductsAsync(pageNumber, pageSize);
-                
+                var products = await _productRepository.GetAllProductsAsync();
+
+                var paginatedResult = new PaginationResult<Product>(products.ToList(), products.Count(), pageNumber, pageSize);
 
                 return new ResultModel
                 {
                     IsSuccess = true,
                     Code = (int)HttpStatusCode.OK,
-                    Data = products,
+                    Data = paginatedResult,
                     Message = "Get all products successfully"
                 };
             }

@@ -8,7 +8,7 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace RandoX.Service.Helper
+namespace RandoX.Common
 {
     // 1. VNPay Configuration Model
     public class VNPayConfig
@@ -42,17 +42,16 @@ namespace RandoX.Service.Helper
     public class VNPayCallbackRequest
     {
         public string vnp_Amount { get; set; }
-        public string vnp_BankCode { get; set; }
-        public string vnp_BankTranNo { get; set; }
-        public string vnp_CardType { get; set; }
+        public string? vnp_BankCode { get; set; } // Optional - có thể null khi thanh toán thất bại
+        public string? vnp_BankTranNo { get; set; } // Optional - không có khi thanh toán thất bại  
+        public string? vnp_CardType { get; set; } // Optional
         public string vnp_OrderInfo { get; set; }
-        public string vnp_PayDate { get; set; }
+        public string? vnp_PayDate { get; set; } // Optional - không có khi thanh toán thất bại
         public string vnp_ResponseCode { get; set; }
         public string vnp_TmnCode { get; set; }
-        public string vnp_TransactionNo { get; set; }
+        public string? vnp_TransactionNo { get; set; } // Optional - không có khi thanh toán thất bại
         public string vnp_TransactionStatus { get; set; }
         public string vnp_TxnRef { get; set; }
-        //public string vnp_SecureHashType { get; set; }
         public string vnp_SecureHash { get; set; }
     }
 
@@ -162,7 +161,7 @@ namespace RandoX.Service.Helper
             try
             {
                 var transaction = await dbContext.Transactions
-                    .FirstOrDefaultAsync(t => t.Id == callback.vnp_TxnRef );
+                    .FirstOrDefaultAsync(t => t.Id == callback.vnp_TxnRef);
 
                 if (transaction == null)
                 {
@@ -177,24 +176,56 @@ namespace RandoX.Service.Helper
 
                 if (callback.vnp_ResponseCode == "00") // Thành công
                 {
-                    transaction.PayDate = DateOnly.FromDateTime(DateTime.ParseExact(callback.vnp_PayDate, "yyyyMMddHHmmss", null));
-                    transaction.Description = $"VNPay - {callback.vnp_OrderInfo} - Mã giao dịch: {callback.vnp_TransactionNo}";
+                    // Chỉ cập nhật PayDate khi có vnp_PayDate và thanh toán thành công
+                    if (!string.IsNullOrEmpty(callback.vnp_PayDate))
+                    {
+                        transaction.PayDate = DateOnly.FromDateTime(DateTime.ParseExact(callback.vnp_PayDate, "yyyyMMddHHmmss", null));
+                    }
+
+                    // Sử dụng vnp_TransactionNo nếu có, nếu không thì dùng vnp_TxnRef
+                    string transactionNo = !string.IsNullOrEmpty(callback.vnp_TransactionNo)
+                        ? callback.vnp_TransactionNo
+                        : callback.vnp_TxnRef;
+
+                    transaction.Description = $"VNPay - {callback.vnp_OrderInfo} - Mã giao dịch: {transactionNo}";
                 }
                 else
                 {
-                    transaction.Description = $"VNPay - Thanh toán thất bại - Mã lỗi: {callback.vnp_ResponseCode}";
+                    // Thanh toán thất bại - không có thông tin ngân hàng
+                    transaction.Description = $"VNPay - Thanh toán thất bại - Mã lỗi: {callback.vnp_ResponseCode} - {GetResponseMessage(callback.vnp_ResponseCode)}";
                 }
 
                 await dbContext.SaveChangesAsync();
-                _logger.LogInformation("Cập nhật trạng thái transaction thành công: {TransactionId}", callback.vnp_TxnRef);
+                _logger.LogInformation("Cập nhật trạng thái transaction thành công: {TransactionId}, ResponseCode: {ResponseCode}",
+                    callback.vnp_TxnRef, callback.vnp_ResponseCode);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Lỗi khi xử lý callback VNPay cho transaction: {TransactionId}", callback.vnp_TxnRef);
+                _logger.LogError(ex, "Lỗi khi xử lý callback VNPay cho transaction: {TransactionId}, ResponseCode: {ResponseCode}",
+                    callback.vnp_TxnRef, callback.vnp_ResponseCode);
                 throw;
             }
         }
-
+        private string GetResponseMessage(string responseCode)
+        {
+            return responseCode switch
+            {
+                "00" => "Giao dịch thành công",
+                "07" => "Trừ tiền thành công. Giao dịch bị nghi ngờ (liên quan tới lừa đảo, giao dịch bất thường)",
+                "09" => "Giao dịch không thành công do: Thẻ/Tài khoản của khách hàng chưa đăng ký dịch vụ InternetBanking tại ngân hàng",
+                "10" => "Giao dịch không thành công do: Khách hàng xác thực thông tin thẻ/tài khoản không đúng quá 3 lần",
+                "11" => "Giao dịch không thành công do: Đã hết hạn chờ thanh toán. Xin quý khách vui lòng thực hiện lại giao dịch",
+                "12" => "Giao dịch không thành công do: Thẻ/Tài khoản của khách hàng bị khóa",
+                "13" => "Giao dịch không thành công do Quý khách nhập sai mật khẩu xác thực giao dịch (OTP)",
+                "24" => "Giao dịch không thành công do: Khách hàng hủy giao dịch",
+                "51" => "Giao dịch không thành công do: Tài khoản của quý khách không đủ số dư để thực hiện giao dịch",
+                "65" => "Giao dịch không thành công do: Tài khoản của Quý khách đã vượt quá hạn mức giao dịch trong ngày",
+                "75" => "Ngân hàng thanh toán đang bảo trì",
+                "79" => "Giao dịch không thành công do: KH nhập sai mật khẩu thanh toán quá số lần quy định",
+                "99" => "Các lỗi khác (lỗi còn lại, không có trong danh sách mã lỗi đã liệt kê)",
+                _ => "Giao dịch không thành công"
+            };
+        }
         private async Task CreatePendingTransactionAsync(string orderId, decimal amount)
         {
             using var scope = _serviceScopeFactory.CreateScope();
