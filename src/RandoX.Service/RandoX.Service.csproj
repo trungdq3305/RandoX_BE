@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RandoX.Common\RandoX.Common.csproj" />
     <ProjectReference Include="..\RandoX.Data\RandoX.Data.csproj" />
   </ItemGroup>
 

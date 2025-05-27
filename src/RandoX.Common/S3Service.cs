@@ -1,4 +1,4 @@
-﻿namespace RandoX.API.Helper
+﻿namespace RandoX.Common
 {
     using Amazon;
     using Amazon.S3;

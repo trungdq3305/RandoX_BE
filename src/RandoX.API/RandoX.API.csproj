@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RandoX.Common\RandoX.Common.csproj" />
     <ProjectReference Include="..\RandoX.Service\RandoX.Service.csproj" />
   </ItemGroup>
 

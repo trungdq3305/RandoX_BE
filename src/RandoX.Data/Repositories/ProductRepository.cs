@@ -24,16 +24,13 @@ namespace RandoX.Data.Repositories
             _uow = uow;
         }
 
-        public async Task<IEnumerable<Product>> GetAllProductsAsync(int pageNumber, int pageSize)
+        public async Task<IEnumerable<Product>> GetAllProductsAsync()
         {
-            if (pageSize <= 0 || pageSize > 100) pageSize = 20;
-            if (pageNumber < 1) pageNumber = 1;
-
-            var products = await _context.Products
-                .Include(p => p.Manufacturer).Include(p => p.ProductSet)
-                .Include(p => p.Promotion)
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize).ToListAsync();
+            var products = await Entities
+                //.Include(p => p.Manufacturer)
+                //.Include(p => p.ProductSet)
+                //.Include(p => p.Promotion)
+                .ToListAsync();
             return products;
         }
 
