@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace RandoX.Data.Interfaces
 {
-    public interface IProductRepository
+    public interface IOrderRepository
     {
-        Task<Product> CreateProductAsync(Product product);
-        Task<IEnumerable<Product>> GetAllProductsAsync();
+        Task<Order> GetOrderByIdAsync(string orderId);
     }
 }

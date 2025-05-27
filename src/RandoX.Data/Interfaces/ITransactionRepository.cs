@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace RandoX.Data.Interfaces
 {
-    public interface IProductRepository
+    public interface ITransactionRepository
     {
-        Task<Product> CreateProductAsync(Product product);
-        Task<IEnumerable<Product>> GetAllProductsAsync();
+        Task<Transaction> CreateTransactionAsync(Transaction transaction);
     }
 }
