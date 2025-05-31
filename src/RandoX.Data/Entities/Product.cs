@@ -31,7 +31,11 @@ public partial class Product
 
     public ulong? IsDeleted { get; set; }
 
+    public string CategoryId { get; set; }
+
     public virtual ICollection<CartProduct> CartProducts { get; set; } = new List<CartProduct>();
+
+    public virtual Category Category { get; set; }
 
     public virtual ICollection<Image> Images { get; set; } = new List<Image>();
 
