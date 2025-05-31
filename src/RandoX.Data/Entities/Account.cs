@@ -33,6 +33,8 @@ public partial class Account
 
     public virtual Cart Cart { get; set; }
 
+    public virtual ICollection<EmailToken> EmailTokens { get; set; } = new List<EmailToken>();
+
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 
     public virtual Role Role { get; set; }
