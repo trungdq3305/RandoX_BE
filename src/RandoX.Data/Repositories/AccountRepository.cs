@@ -36,6 +36,44 @@ namespace RandoX.Data.Repositories
             await _context.SaveChangesAsync();
             return account;
         }
+        public async Task<Account> GetByEmailAsync(string email)
+        {
+            return await _context.Accounts
+                .Include(a => a.Role)
+                .FirstOrDefaultAsync(a => a.Email == email && a.IsDeleted!=1);
+        }
+
+        public async Task<Account> GetByIdAsync(string id)
+        {
+            return await _context.Accounts
+                .Include(a => a.Role)
+                .FirstOrDefaultAsync(a => a.Id == id && a.IsDeleted != 1);
+        }
+
+        public async Task<Account> CreateAsync(Account account)
+        {
+            account.Id = Guid.NewGuid().ToString();
+            account.CreatedAt = DateTime.UtcNow;
+            account.UpdatedAt = DateTime.UtcNow;
+
+            _context.Accounts.Add(account);
+            await _context.SaveChangesAsync();
+            return account;
+        }
+
+        public async Task<Account> UpdateAsync(Account account)
+        {
+            account.UpdatedAt = DateTime.UtcNow;
+            _context.Accounts.Update(account);
+            await _context.SaveChangesAsync();
+            return account;
+        }
+
+        public async Task<bool> EmailExistsAsync(string email)
+        {
+            return await _context.Accounts
+                .AnyAsync(a => a.Email == email && a.IsDeleted != 1);
+        }
 
     }
 }

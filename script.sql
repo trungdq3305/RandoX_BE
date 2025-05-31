@@ -344,3 +344,17 @@ CREATE TABLE category (
 ALTER TABLE product 
 ADD COLUMN category_id VARCHAR(36),
 ADD FOREIGN KEY (category_id) REFERENCES category(id);
+
+CREATE TABLE email_token (
+    id VARCHAR(36) PRIMARY KEY DEFAULT (UUID()),
+    account_id VARCHAR(36) NOT NULL,
+    token VARCHAR(255) NOT NULL,
+    token_type VARCHAR(50) NOT NULL,
+    expiry_date DATETIME NOT NULL,
+    is_used BIT DEFAULT 0,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (account_id) REFERENCES account(id),
+    INDEX idx_token (token),
+    INDEX idx_token_type (token_type),
+    INDEX idx_expiry_date (expiry_date)
+);

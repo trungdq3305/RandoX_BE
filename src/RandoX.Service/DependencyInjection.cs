@@ -20,6 +20,7 @@ namespace RandoX.Service
             service.AddTransient<IImageService, ImageService>();
             service.AddTransient<IOrderService, OrderService>();
             service.AddTransient<ITransactionService, TransactionService>();
+            service.AddTransient<IEmailService, EmailService>();
             return service;
         }
     }
