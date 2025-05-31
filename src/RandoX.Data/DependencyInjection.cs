@@ -22,6 +22,7 @@ namespace RandoX.Data
             service.AddTransient<IVoucherRepository, VoucherRepository>();
             service.AddTransient<IOrderRepository, OrderRepository>();
             service.AddTransient<ITransactionRepository, TransactionRepository>();
+            service.AddTransient<IEmailTokenRepository, EmailTokenRepository>();
             return service;
         }
     }

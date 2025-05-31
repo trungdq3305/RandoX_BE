@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using RandoX.API;
 using RandoX.Common;
 using RandoX.Data;
 using RandoX.Data.DBContext;
+using RandoX.Data.Models.EmailModel;
 using RandoX.Service;
 
 using System.Text;
@@ -19,10 +21,10 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<randox_dbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 builder.Services
-        .AddRepository()
-        .AddService();
+.AddRepository()
+.AddService();
 
-
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 // Add services to the container.
 
 builder.Services.AddControllers();

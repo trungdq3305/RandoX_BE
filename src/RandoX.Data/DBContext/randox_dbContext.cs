@@ -29,6 +29,8 @@ public partial class randox_dbContext : DbContext
 
     public virtual DbSet<Category> Categories { get; set; }
 
+    public virtual DbSet<EmailToken> EmailTokens { get; set; }
+
     public virtual DbSet<Image> Images { get; set; }
 
     public virtual DbSet<Manufacturer> Manufacturers { get; set; }
@@ -296,6 +298,53 @@ public partial class randox_dbContext : DbContext
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasColumnType("datetime")
                 .HasColumnName("updated_at");
+        });
+
+        modelBuilder.Entity<EmailToken>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("email_token");
+
+            entity.HasIndex(e => e.AccountId, "account_id");
+
+            entity.HasIndex(e => e.ExpiryDate, "idx_expiry_date");
+
+            entity.HasIndex(e => e.Token, "idx_token");
+
+            entity.HasIndex(e => e.TokenType, "idx_token_type");
+
+            entity.Property(e => e.Id)
+                .HasMaxLength(36)
+                .HasDefaultValueSql("uuid()")
+                .HasColumnName("id");
+            entity.Property(e => e.AccountId)
+                .IsRequired()
+                .HasMaxLength(36)
+                .HasColumnName("account_id");
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasColumnType("datetime")
+                .HasColumnName("created_at");
+            entity.Property(e => e.ExpiryDate)
+                .HasColumnType("datetime")
+                .HasColumnName("expiry_date");
+            entity.Property(e => e.IsUsed)
+                .HasDefaultValueSql("b'0'")
+                .HasColumnType("bit(1)")
+                .HasColumnName("is_used");
+            entity.Property(e => e.Token)
+                .IsRequired()
+                .HasColumnName("token");
+            entity.Property(e => e.TokenType)
+                .IsRequired()
+                .HasMaxLength(50)
+                .HasColumnName("token_type");
+
+            entity.HasOne(d => d.Account).WithMany(p => p.EmailTokens)
+                .HasForeignKey(d => d.AccountId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("email_token_ibfk_1");
         });
 
         modelBuilder.Entity<Image>(entity =>
