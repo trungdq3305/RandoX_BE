@@ -326,3 +326,21 @@ INSERT INTO shipment_status (shipment_status_name) VALUES
 ('Shipping'),
 ('Fail'),
 ('Success');
+
+
+-- Tạo bảng Category
+CREATE TABLE category (
+    id VARCHAR(36) PRIMARY KEY DEFAULT (UUID()),
+    category_name VARCHAR(255) NOT NULL,
+    description TEXT,
+    is_active BIT DEFAULT 1,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deleted_at DATETIME NULL,
+    is_deleted BIT DEFAULT 0
+);
+
+-- Thêm cột category_id vào bảng product
+ALTER TABLE product 
+ADD COLUMN category_id VARCHAR(36),
+ADD FOREIGN KEY (category_id) REFERENCES category(id);

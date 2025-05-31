@@ -27,6 +27,8 @@ public partial class randox_dbContext : DbContext
 
     public virtual DbSet<CartProduct> CartProducts { get; set; }
 
+    public virtual DbSet<Category> Categories { get; set; }
+
     public virtual DbSet<Image> Images { get; set; }
 
     public virtual DbSet<Manufacturer> Manufacturers { get; set; }
@@ -257,6 +259,45 @@ public partial class randox_dbContext : DbContext
                 .HasConstraintName("cart_product_ibfk_2");
         });
 
+        modelBuilder.Entity<Category>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("category");
+
+            entity.Property(e => e.Id)
+                .HasMaxLength(36)
+                .HasDefaultValueSql("uuid()")
+                .HasColumnName("id");
+            entity.Property(e => e.CategoryName)
+                .IsRequired()
+                .HasMaxLength(255)
+                .HasColumnName("category_name");
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasColumnType("datetime")
+                .HasColumnName("created_at");
+            entity.Property(e => e.DeletedAt)
+                .HasColumnType("datetime")
+                .HasColumnName("deleted_at");
+            entity.Property(e => e.Description)
+                .HasColumnType("text")
+                .HasColumnName("description");
+            entity.Property(e => e.IsActive)
+                .HasDefaultValueSql("b'1'")
+                .HasColumnType("bit(1)")
+                .HasColumnName("is_active");
+            entity.Property(e => e.IsDeleted)
+                .HasDefaultValueSql("b'0'")
+                .HasColumnType("bit(1)")
+                .HasColumnName("is_deleted");
+            entity.Property(e => e.UpdatedAt)
+                .ValueGeneratedOnAddOrUpdate()
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasColumnType("datetime")
+                .HasColumnName("updated_at");
+        });
+
         modelBuilder.Entity<Image>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
@@ -406,6 +447,8 @@ public partial class randox_dbContext : DbContext
 
             entity.ToTable("product");
 
+            entity.HasIndex(e => e.CategoryId, "category_id");
+
             entity.HasIndex(e => e.ManufacturerId, "manufacturer_id");
 
             entity.HasIndex(e => e.ProductSetId, "product_set_id");
@@ -416,6 +459,9 @@ public partial class randox_dbContext : DbContext
                 .HasMaxLength(36)
                 .HasDefaultValueSql("uuid()")
                 .HasColumnName("id");
+            entity.Property(e => e.CategoryId)
+                .HasMaxLength(36)
+                .HasColumnName("category_id");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasColumnType("datetime")
@@ -452,6 +498,10 @@ public partial class randox_dbContext : DbContext
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasColumnType("datetime")
                 .HasColumnName("updated_at");
+
+            entity.HasOne(d => d.Category).WithMany(p => p.Products)
+                .HasForeignKey(d => d.CategoryId)
+                .HasConstraintName("product_ibfk_4");
 
             entity.HasOne(d => d.Manufacturer).WithMany(p => p.Products)
                 .HasForeignKey(d => d.ManufacturerId)
