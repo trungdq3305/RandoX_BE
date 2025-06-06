@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ master ]
 
+concurrency:
+  group: deploy-to-eb
+  cancel-in-progress: false
 jobs:
   deploy:
     runs-on: ubuntu-latest
