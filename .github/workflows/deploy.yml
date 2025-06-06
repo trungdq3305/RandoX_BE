@@ -43,22 +43,17 @@ jobs:
         mkdir -p deploy
         cat > deploy/Dockerrun.aws.json <<EOF
         {
-          "AWSEBDockerrunVersion": "1",
-          "Authentication": {
-            "Bucket": "elasticbeanstalk-ap-southeast-2-123456789012",
-            "Key": "docker-config/.dockercfg"
-          },
-          "Image": {
-            "Name": "${{ secrets.DOCKERHUB_USERNAME }}/randox:$IMAGE_TAG",
-            "Update": "true"
-          },
-          "Ports": [
-            {
-              "ContainerPort": "5000"
-            }
-          ],
-          "Logging": "/var/log/nginx"
+        "AWSEBDockerrunVersion": "1",
+        "Image": {
+        "Name": "${{ secrets.DOCKERHUB_USERNAME }}/randox:${IMAGE_TAG}",
+        "Update": "true"
+        },
+        "Ports": [
+        {
+         "ContainerPort": "5000"
         }
+         ]
+         }
         EOF
         cd deploy && zip -r ../deploy.zip .
     
