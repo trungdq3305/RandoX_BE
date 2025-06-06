@@ -1,8 +1,4 @@
-- name: Generate deployment package
-  run: |
-    IMAGE_TAG=${{ github.sha }}
-    mkdir -p deploy
-    cat > deploy/Dockerrun.aws.json <<EOF
+
     {
       "AWSEBDockerrunVersion": "1",
       "Image": {
@@ -14,5 +10,4 @@
         }
       ]
     }
-    EOF
-    cd deploy && zip -r ../deploy.zip .
+
