@@ -1,0 +1,12 @@
+{
+  {
+    "AWSEBDockerrunVersion": "1",
+    "Image": {
+      "Name": "trung/randox:latest"
+    },
+    "Ports": [
+      {
+        "ContainerPort": "5000"
+      }
+    ]
+  }
