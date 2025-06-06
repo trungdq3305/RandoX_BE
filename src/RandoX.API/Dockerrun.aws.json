@@ -1,4 +1,4 @@
-{
+
   {
     "AWSEBDockerrunVersion": "1",
     "Image": {
@@ -10,4 +10,3 @@
       }
     ]
   }
-}
