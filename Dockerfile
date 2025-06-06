@@ -9,7 +9,7 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 
 # Copy solution file and all project files
-COPY RandoX.sln ./
+COPY src ./
 COPY src/RandoX.API/RandoX.API.csproj ./src/RandoX.API/
 COPY src/RandoX.Common/RandoX.Common.csproj ./src/RandoX.Common/
 COPY src/RandoX.Data/RandoX.Data.csproj ./src/RandoX.Data/
