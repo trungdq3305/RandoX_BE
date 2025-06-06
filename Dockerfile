@@ -1,25 +1,36 @@
-# See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
-# This stage is used when running from VS in fast mode (Default for Debug configuration)
+# Stage 1: Base image for runtime
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
 EXPOSE 5000
 
-# This stage is used to build the service project
+# Stage 2: Build the application
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["src/RandoX.API/RandoX.API.csproj", "RandoX.API/"]
-RUN dotnet restore "./RandoX.API/RandoX.API.csproj"
-COPY . .
-WORKDIR "/src/RandoX.API"
-RUN dotnet build "./RandoX.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
-# This stage is used to publish the service project to be copied to the final stage
+# Copy solution file and all project files
+COPY RandoX.sln ./
+COPY src/RandoX.API/RandoX.API.csproj ./src/RandoX.API/
+COPY src/RandoX.Common/RandoX.Common.csproj ./src/RandoX.Common/
+COPY src/RandoX.Data/RandoX.Data.csproj ./src/RandoX.Data/
+COPY src/RandoX.Service/RandoX.Service.csproj ./src/RandoX.Service/
+
+# Restore dependencies
+RUN dotnet restore ./RandoX.sln
+
+# Copy the rest of the source code
+COPY src/ ./src/
+
+# Build the project
+WORKDIR /src/src/RandoX.API
+RUN dotnet build RandoX.API.csproj -c $BUILD_CONFIGURATION -o /app/build
+
+# Stage 3: Publish
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./RandoX.API.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish RandoX.API.csproj -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
-# This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
+# Stage 4: Final image
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
