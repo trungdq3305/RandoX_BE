@@ -6,11 +6,11 @@
     {
       "AWSEBDockerrunVersion": "1",
       "Image": {
-        "Name": "${{ secrets.DOCKERHUB_USERNAME }}/randox:latest"
+        "Name": "trungdq3305/randox:latest"
       },
       "Ports": [
         {
-          "ContainerPort": "5000"
+          "ContainerPort": "8000"
         }
       ]
     }
