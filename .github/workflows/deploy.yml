@@ -29,7 +29,7 @@ jobs:
     - name: Generate deployment package
       run: |
         mkdir deploy
-        cp Dockerrun.aws.json deploy/
+        cp src/RandoX.API/Dockerrun.aws.json deploy/
         cd deploy && zip -r ../deploy.zip .
     
     - name: Deploy to EB
