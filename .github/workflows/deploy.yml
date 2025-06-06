@@ -3,6 +3,8 @@
 on:
   push:
     branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
   deploy:
@@ -30,33 +32,13 @@ jobs:
       with:
         context: .  # Đảm bảo build từ đúng thư mục
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/randox:${{ github.sha }}
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/randox:lastet
     
     # Tạo deployment package (chỉ 1 step)
     - name: Generate deployment package
       run: |
-        IMAGE_TAG=${{ github.sha }}
-        mkdir -p deploy
-        cat > deploy/Dockerrun.aws.json <<EOF
-        {
-          "AWSEBDockerrunVersion": "1",
-          "Authentication": {
-            "Bucket": "elasticbeanstalk-ap-southeast-2-123456789012",
-            "Key": "docker-config/.dockercfg"
-          },
-          "Image": {
-            "Name": "${{ secrets.DOCKERHUB_USERNAME }}/randox:$IMAGE_TAG",
-            "Update": "true"
-          },
-          "Ports": [
-            {
-              "ContainerPort": "5000",
-              "HostPort": "5000"
-            }
-          ],
-          "Logging": "/var/log/nginx"
-        }
-        EOF
+        mkdir deploy
+        cp Dockerrun.aws.json deploy/
         cd deploy && zip -r ../deploy.zip .
     
     - name: Debug - Check zip contents
