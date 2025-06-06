@@ -12,10 +12,10 @@ EXPOSE 5000
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["RandoX.API/RandoX.API.csproj", "RandoX.API/"]
+COPY ["src/RandoX.API/RandoX.API.csproj", "RandoX.API/"]
 RUN dotnet restore "./RandoX.API/RandoX.API.csproj"
 COPY . .
-WORKDIR "/src/RandoX.API"
+WORKDIR "src/src/RandoX.API"
 RUN dotnet build "./RandoX.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # This stage is used to publish the service project to be copied to the final stage
