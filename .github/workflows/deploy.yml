@@ -51,7 +51,7 @@ jobs:
           "Ports": [
             {
               "ContainerPort": "5000",
-              "HostPort": "80"
+              "HostPort": "5000"
             }
           ],
           "Logging": "/var/log/nginx"
