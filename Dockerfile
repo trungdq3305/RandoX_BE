@@ -1,11 +1,7 @@
 # See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
-
 # This stage is used when running from VS in fast mode (Default for Debug configuration)
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
-USER $APP_UID
 WORKDIR /app
-EXPOSE 8080
-EXPOSE 8081
 EXPOSE 5000
 
 # This stage is used to build the service project
@@ -15,7 +11,7 @@ WORKDIR /src
 COPY ["src/RandoX.API/RandoX.API.csproj", "RandoX.API/"]
 RUN dotnet restore "./RandoX.API/RandoX.API.csproj"
 COPY . .
-WORKDIR "src/src/RandoX.API"
+WORKDIR "/src/RandoX.API"
 RUN dotnet build "./RandoX.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # This stage is used to publish the service project to be copied to the final stage
