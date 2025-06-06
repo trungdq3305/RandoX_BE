@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
-    # Bước xác thực AWS bắt buộc
+    # AWS Authentication
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v2
       with:
@@ -28,29 +28,37 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
       with:
-        context: .
+        context: ./src/RandoX.API  # Đảm bảo build từ đúng thư mục
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/randox:${{ github.sha }}
     
-    # Bước tạo package được cải thiện
+    # Tạo deployment package (chỉ 1 step)
     - name: Generate deployment package
       run: |
+        IMAGE_TAG=${{ github.sha }}
         mkdir -p deploy
-        # Kiểm tra xem file Dockerrun.aws.json có tồn tại không
-        if [ ! -f src/RandoX.API/Dockerrun.aws.json ]; then
-          echo "❌ Error: Dockerrun.aws.json not found!"
-          exit 1
-        fi
-        cp src/RandoX.API/Dockerrun.aws.json deploy/
+        cat > deploy/Dockerrun.aws.json <<EOF
+        {
+          "AWSEBDockerrunVersion": "1",
+          "Authentication": {
+            "Bucket": "elasticbeanstalk-ap-southeast-2-123456789012",
+            "Key": "docker-config/.dockercfg"
+          },
+          "Image": {
+            "Name": "${{ secrets.DOCKERHUB_USERNAME }}/randox:$IMAGE_TAG",
+            "Update": "true"
+          },
+          "Ports": [
+            {
+              "ContainerPort": "5000",
+              "HostPort": "80"
+            }
+          ],
+          "Logging": "/var/log/nginx"
+        }
+        EOF
         cd deploy && zip -r ../deploy.zip .
-        # Kiểm tra file zip đã được tạo
-        if [ ! -f ../deploy.zip ]; then
-          echo "❌ Error: deploy.zip creation failed!"
-          exit 1
-        fi
-        ls -lh ../deploy.zip
     
-    # Thêm bước debug để kiểm tra nội dung zip
     - name: Debug - Check zip contents
       run: |
         unzip -l deploy.zip
@@ -62,9 +70,8 @@ jobs:
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         application_name: randox
         environment_name: randox-env
-        version_label: ${{ github.run_id }}-${{ github.run_number }}
+        version_label: v-${{ github.run_number }}-${{ github.sha_short }}
         region: ap-southeast-2
         deployment_package: deploy.zip
-        # Thêm các tham số quan trọng
         wait_for_deployment: true
-        use_existing_version_if_available: true
+        use_existing_version_if_available: false  # Nên để false để đảm bảo version mới
