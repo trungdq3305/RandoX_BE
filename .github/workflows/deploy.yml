@@ -67,4 +67,3 @@ jobs:
         deployment_package: deploy.zip
         # Thêm các tham số quan trọng
         wait_for_deployment: true
-        verbose: true
