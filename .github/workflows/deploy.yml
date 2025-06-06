@@ -62,7 +62,7 @@ jobs:
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         application_name: randox
         environment_name: randox-env
-        version_label: ${{ github.sha }}
+        version_label: ${{ github.run_id }}-${{ github.run_number }}
         region: ap-southeast-2
         deployment_package: deploy.zip
         # Thêm các tham số quan trọng
