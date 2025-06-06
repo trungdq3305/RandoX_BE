@@ -74,4 +74,4 @@ jobs:
         region: ap-southeast-2
         deployment_package: deploy.zip
         wait_for_deployment: true
-        use_existing_version_if_available: false  # Nên để false để đảm bảo version mới
+        use_existing_version_if_available: true
