@@ -22,5 +22,6 @@ namespace RandoX.Data.Repositories
         {
             throw new NotImplementedException();
         }
+        //
     }
 }
