@@ -1,12 +1,18 @@
-
-  {
-    "AWSEBDockerrunVersion": "1",
-    "Image": {
-      "Name": "trung/randox:latest"
-    },
-    "Ports": [
-      {
-        "ContainerPort": "5000"
-      }
-    ]
-  }
+- name: Generate deployment package
+  run: |
+    IMAGE_TAG=${{ github.sha }}
+    mkdir -p deploy
+    cat > deploy/Dockerrun.aws.json <<EOF
+    {
+      "AWSEBDockerrunVersion": "1",
+      "Image": {
+        "Name": "${{ secrets.DOCKERHUB_USERNAME }}/randox:$IMAGE_TAG"
+      },
+      "Ports": [
+        {
+          "ContainerPort": "5000"
+        }
+      ]
+    }
+    EOF
+    cd deploy && zip -r ../deploy.zip .
