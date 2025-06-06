@@ -42,5 +42,3 @@ jobs:
         version_label: ${{ github.sha }}
         region: ap-southeast-2
         deployment_package: deploy.zip
-        existing_bucket_name: elasticbeanstalk-ap-southeast-2-879814644202 
-        wait_for_deployment: true
