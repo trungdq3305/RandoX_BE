@@ -36,7 +36,7 @@ jobs:
         context: ./src/backend/RandoX.API
         file: ./src/backend/RandoX.API/Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/randox:latest
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/randox:latest
               ${{ secrets.DOCKERHUB_USERNAME }}/randox:${{ github.sha }}
     
     # Tạo deployment package (chỉ 1 step)
