@@ -31,13 +31,15 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     
     - name: Build and push Docker image
-      uses: docker/build-push-action@v4
+      uses: docker/build-push-action@v5
       with:
-       context: .
-       push: true
-       tags: |
-        ${{ secrets.DOCKERHUB_USERNAME }}/randox:latest
-        ${{ secrets.DOCKERHUB_USERNAME }}/randox:${{ github.sha }}
+        context: ./backend
+        file: ./backend/src/RandoX.API/Dockerfile
+        push: true
+        tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/randox:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/randox:${{ github.sha }}
+
     
     # Tạo deployment package (chỉ 1 step)
     - name: Generate deployment package
