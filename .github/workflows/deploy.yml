@@ -33,8 +33,8 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v5
       with:
-        context: ./src/backend
-        file: ./src/backend/Dockerfile
+        context: ./src/backend/RandoX.API
+        file: ./src/backend/RandoX.API/Dockerfile
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/randox:latest
               ${{ secrets.DOCKERHUB_USERNAME }}/randox:${{ github.sha }}
