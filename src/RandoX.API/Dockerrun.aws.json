@@ -1,12 +1,13 @@
 {
-  {
-    "AWSEBDockerrunVersion": "1",
-    "Image": {
-      "Name": "trung/randox:latest"
-    },
-    "Ports": [
-      {
-        "ContainerPort": "5000"
-      }
-    ]
-  }
+  "AWSEBDockerrunVersion": "1",
+  "Image": {
+    "Name": "${{ secrets.DOCKERHUB_USERNAME }}/randox:${{ github.sha }}",
+    "Update": "true"
+  },
+  "Ports": [
+    {
+      "ContainerPort": 5000
+    }
+  ]
+
+}

@@ -1,4 +1,4 @@
-name: Deploy to AWS Elastic Beanstalk
+﻿name: Deploy to AWS Elastic Beanstalk
 
 on:
   push:
@@ -6,12 +6,23 @@ on:
   pull_request:
     branches: [ master ]
 
+concurrency:
+  group: deploy-to-eb
+  cancel-in-progress: false
 jobs:
   deploy:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
+    
+    # AWS Authentication
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ap-southeast-2
     
     - name: Login to Docker Hub
       uses: docker/login-action@v2
@@ -22,15 +33,36 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
       with:
-        context: .
-        push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/randox:latest
+       context: .
+       push: true
+       tags: |
+        ${{ secrets.DOCKERHUB_USERNAME }}/randox:latest
+        ${{ secrets.DOCKERHUB_USERNAME }}/randox:${{ github.sha }}
     
+    # Tạo deployment package (chỉ 1 step)
     - name: Generate deployment package
       run: |
-        mkdir deploy
-        cp Dockerrun.aws.json deploy/
+        IMAGE_TAG=${{ github.sha }}
+        mkdir -p deploy
+        cat > deploy/Dockerrun.aws.json <<EOF
+        {
+        "AWSEBDockerrunVersion": "1",
+        "Image": {
+        "Name": "${{ secrets.DOCKERHUB_USERNAME }}/randox:${IMAGE_TAG}",
+        "Update": "true"
+        },
+        "Ports": [
+        {
+         "ContainerPort": "5000"
+        }
+         ]
+         }
+        EOF
         cd deploy && zip -r ../deploy.zip .
+    
+    - name: Debug - Check zip contents
+      run: |
+        unzip -l deploy.zip
     
     - name: Deploy to EB
       uses: einaregilsson/beanstalk-deploy@v21
@@ -39,6 +71,8 @@ jobs:
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         application_name: randox
         environment_name: randox-env
-        version_label: ${{ github.sha }}
-        region: us-east-1
+        version_label: v-${{ github.run_number }}-${{ github.sha_short }}
+        region: ap-southeast-2
         deployment_package: deploy.zip
+        wait_for_deployment: true
+        use_existing_version_if_available: true
