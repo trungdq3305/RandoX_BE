@@ -21,42 +21,35 @@ namespace RandoX.Service.Services
         {
             _productRepository = productRepository;
         }
-        public async Task<ResultModel> GetAllProductsAsync(int pageNumber, int pageSize)
+        public async Task<ApiResponse<PaginationResult<Product>>> GetAllProductsAsync(int pageNumber, int pageSize)
         {
-            ResultModel resultModel = new()
-            {
-                IsSuccess = false,
-                Code = (int)HttpStatusCode.InternalServerError,
-                Message = $"Internal Server Error"
-            };
             try
             {
                 var products = await _productRepository.GetAllProductsAsync();
 
                 var paginatedResult = new PaginationResult<Product>(products.ToList(), products.Count(), pageNumber, pageSize);
 
-                return new ResultModel
-                {
-                    IsSuccess = true,
-                    Code = (int)HttpStatusCode.OK,
-                    Data = paginatedResult,
-                    Message = "Get all products successfully"
-                };
+                return ApiResponse<PaginationResult<Product>>.Success(paginatedResult, "success");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return resultModel;
+                return ApiResponse<PaginationResult<Product>>.Failure("Fail to get all product ");
             }
         }
-
-        public async Task<ResultModel> CreateProductAsync(ProductRequest productRequest)
+        public async Task<ApiResponse<Product>> GetProductByIdAsync(string id)
         {
-            ResultModel resultModel = new()
+            try
             {
-                IsSuccess = false,
-                Code = (int)HttpStatusCode.InternalServerError,
-                Message = $"Internal Server Error"
-            };
+                var products = await _productRepository.GetProductByIdAsync(id);
+                return ApiResponse<Product>.Success(products, "success");
+            }
+            catch (Exception)
+            {
+                return ApiResponse<Product>.Failure("Fail to get product ");
+            }
+        }
+        public async Task<ApiResponse<ProductRequest>> CreateProductAsync(ProductRequest productRequest)
+        {
             try
             {
                 Product product = new Product
@@ -67,37 +60,58 @@ namespace RandoX.Service.Services
                     Quantity = productRequest.Quantity,
                     Price = productRequest.Price,
                     ManufacturerId = productRequest.ManufacturerId,
-                    ProductSetId = productRequest.ProductSetId,
-                    PromotionId = productRequest.PromotionId,
+                    CategoryId = productRequest.CategoryId,
                 };
                 
                 await _productRepository.CreateProductAsync(product);
 
-                ProductResponse productResponse = new ProductResponse
-                {
-                    Id = product.Id,
-                    ProductName = product.ProductName,
-                    Description = product.Description,
-                    Quantity = product.Quantity,
-                    Price = product.Price,
-                    ManufacturerId = product.ManufacturerId,
-                    ProductSetId = product.ProductSetId,
-                    PromotionId = productRequest.PromotionId,
-                };
-                return new ResultModel
-                {
-                    IsSuccess = true,
-                    Code = (int)HttpStatusCode.OK,
-                    Data = productResponse,
-                    Message = "Create new product successfully"
-                };
+                return ApiResponse<ProductRequest>.Success(productRequest, "success");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                resultModel.Message = ex.InnerException?.Message ?? ex.Message;
-                return resultModel;
+                return ApiResponse<ProductRequest>.Failure("Fail to create product ");
             }
         }
 
+        public async Task<ApiResponse<ProductRequest>> UpdateProductAsync(string id, ProductRequest productRequest)
+        {
+            try
+            {
+                Product product = await _productRepository.GetProductByIdAsync(id);
+
+                product.ProductName = productRequest.ProductName;
+                product.Description = productRequest.Description;
+                product.Quantity = productRequest.Quantity;
+                product.Price = productRequest.Price;
+                product.ManufacturerId = productRequest.ManufacturerId;
+                product.CategoryId = productRequest.CategoryId;
+
+                await _productRepository.UpdateProductAsync(product);
+                
+                return ApiResponse<ProductRequest>.Success(productRequest, "success");
+            }
+            catch (Exception)
+            {
+                return ApiResponse<ProductRequest>.Failure("Fail to update product ");
+            }
+        }
+        public async Task<ApiResponse<Product>> DeleteProductAsync(string id)
+        {
+            try
+            {
+                Product product = await _productRepository.GetProductByIdAsync(id);
+
+                product.DeletedAt = DateTime.Now;
+                product.IsDeleted = 1;
+
+                await _productRepository.UpdateProductAsync(product);
+
+                return ApiResponse<Product>.Success(product, "delete success");
+            }
+            catch (Exception)
+            {
+                return ApiResponse<Product>.Failure("Fail to delete product ");
+            }
+        }
     }
 }

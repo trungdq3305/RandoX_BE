@@ -11,5 +11,8 @@ namespace RandoX.Data.Interfaces
     {
         Task<Product> CreateProductAsync(Product product);
         Task<IEnumerable<Product>> GetAllProductsAsync();
+        Task<Product> GetProductByIdAsync(string id);
+        Task<Product> UpdateProductAsync(Product product);
+
     }
 }

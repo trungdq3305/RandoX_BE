@@ -11,39 +11,39 @@ using System.Threading.Tasks;
 
 namespace RandoX.Data.Repositories
 {
-    public class CategoryRepository : Repository<Category>, ICategoryRepository
+    public class PromotionRepository : Repository<Promotion>, IPromotionRepository
     {
         private readonly randox_dbContext _context;
         private readonly IUnitOfWork _uow;
 
-        public CategoryRepository(randox_dbContext context, IUnitOfWork uow) : base(context)
+        public PromotionRepository(randox_dbContext context, IUnitOfWork uow) : base(context)
         {
             _context = context;
             _uow = uow;
         }
 
-        public async Task<IEnumerable<Category>> GetAllCategoriesAsync()
+        public async Task<IEnumerable<Promotion>> GetAllPromotionsAsync()
         {
             return await Entities.ToListAsync();
         }
 
-        public async Task<Category> GetCategoryByIdAsync(string id)
+        public async Task<Promotion> GetPromotionByIdAsync(string id)
         {
-            return await Entities.FirstOrDefaultAsync(c => c.Id == id);
+            return await Entities.FirstOrDefaultAsync(p => p.Id == id);
         }
 
-        public async Task<Category> CreateCategoryAsync(Category category)
+        public async Task<Promotion> CreatePromotionAsync(Promotion promotion)
         {
-            Entities.Add(category);
+            Entities.Add(promotion);
             await _uow.SaveChangesAsync();
-            return category;
+            return promotion;
         }
 
-        public async Task<Category> UpdateCategoryAsync(Category category)
+        public async Task<Promotion> UpdatePromotionAsync(Promotion promotion)
         {
-            Entities.Update(category);
+            Entities.Update(promotion);
             await _uow.SaveChangesAsync();
-            return category;
+            return promotion;
         }
     }
 

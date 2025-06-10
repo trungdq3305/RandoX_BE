@@ -24,6 +24,7 @@ namespace RandoX.Data.Models
             };
         }
 
+        // Phương thức tĩnh Failure
         public static ApiResponse<T> Failure(string message, List<string> errors = null)
         {
             return new ApiResponse<T>
