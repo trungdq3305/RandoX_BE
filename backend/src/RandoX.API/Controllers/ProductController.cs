@@ -22,10 +22,29 @@ namespace RandoX.API.Controllers
             return Ok(courses);
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetProductById(string id)
+        {
+            var courses = await _productService.GetProductByIdAsync(id);
+            return Ok(courses);
+        }
+
         [HttpPost]
-        public async Task<IActionResult> CreateProducts(ProductRequest productRequest)
+        public async Task<IActionResult> CreateProduct(ProductRequest productRequest)
         {
             var productResponse = await _productService.CreateProductAsync(productRequest);
+            return Ok(productResponse);
+        }
+        [HttpPut]
+        public async Task<IActionResult> UpdateProduct(string id, ProductRequest productRequest)
+        {
+            var productResponse = await _productService.UpdateProductAsync(id, productRequest);
+            return Ok(productResponse);
+        }
+        [HttpDelete]
+        public async Task<IActionResult> DeleteProduct(string id)
+        {
+            var productResponse = await _productService.DeleteProductAsync(id);
             return Ok(productResponse);
         }
     }
