@@ -33,10 +33,25 @@ namespace RandoX.Data.Repositories
                 .ToListAsync();
             return products;
         }
-
+        public async Task<Product> GetProductByIdAsync(string id)
+        {
+            var product = await Entities
+                .Include(p => p.Manufacturer)
+                .Include(p => p.ProductSet)
+                .Include(p => p.Promotion)
+                .Include(p => p.Category)
+                .FirstOrDefaultAsync(p => p.Id == id);
+            return product;
+        }
         public async Task<Product> CreateProductAsync(Product product)
         {
             Entities.Add(product);
+            await _uow.SaveChangesAsync();
+            return product;
+        }
+        public async Task<Product> UpdateProductAsync(Product product)
+        {
+            Entities.Update(product);
             await _uow.SaveChangesAsync();
             return product;
         }

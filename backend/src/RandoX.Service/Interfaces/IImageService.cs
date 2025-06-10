@@ -11,6 +11,6 @@ namespace RandoX.Service.Interfaces
 {
     public interface IImageService
     {
-        Task<ResultModel> AddImageAsync(IFormFile image, string productId, string orderId);
+        Task<ApiResponse<string>> AddImageAsync(IFormFile image, string productId, string orderId);
     }
 }
