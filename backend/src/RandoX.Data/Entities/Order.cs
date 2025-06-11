@@ -15,8 +15,6 @@ public partial class Order
 
     public decimal? ShippingCost { get; set; }
 
-    public string AccountId { get; set; }
-
     public string VoucherId { get; set; }
 
     public DateTime? CreatedAt { get; set; }
@@ -26,8 +24,6 @@ public partial class Order
     public DateTime? DeletedAt { get; set; }
 
     public ulong? IsDeleted { get; set; }
-
-    public virtual Account Account { get; set; }
 
     public virtual Cart Cart { get; set; }
 

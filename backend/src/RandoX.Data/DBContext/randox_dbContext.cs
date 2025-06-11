@@ -68,9 +68,9 @@ public partial class randox_dbContext : DbContext
 
     public virtual DbSet<WithdrawStatus> WithdrawStatuses { get; set; }
 
-//    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-//        => optionsBuilder.UseMySql("server=randox2.chukqcua8s7g.ap-southeast-2.rds.amazonaws.com;database=randox_db;uid=trung;pwd=TTt192004", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.41-mysql"));
+    //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+    //        => optionsBuilder.UseMySql("server=randox2.chukqcua8s7g.ap-southeast-2.rds.amazonaws.com;database=randox_db;uid=trung;pwd=TTt192004", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.41-mysql"));
     public static string GetConnectionString(string connectionStringName)
     {
         var config = new ConfigurationBuilder()
@@ -87,7 +87,6 @@ public partial class randox_dbContext : DbContext
             GetConnectionString("DefaultConnection"),
             ServerVersion.AutoDetect(GetConnectionString("DefaultConnection")))
         .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder
@@ -203,10 +202,15 @@ public partial class randox_dbContext : DbContext
 
             entity.ToTable("cart");
 
+            entity.HasIndex(e => e.AccountId, "account_id");
+
             entity.Property(e => e.Id)
                 .HasMaxLength(36)
                 .HasDefaultValueSql("uuid()")
                 .HasColumnName("id");
+            entity.Property(e => e.AccountId)
+                .HasMaxLength(36)
+                .HasColumnName("account_id");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasColumnType("datetime")
@@ -227,7 +231,11 @@ public partial class randox_dbContext : DbContext
                 .HasColumnType("datetime")
                 .HasColumnName("updated_at");
 
-            entity.HasOne(d => d.IdNavigation).WithOne(p => p.Cart)
+            entity.HasOne(d => d.Account).WithMany(p => p.CartAccounts)
+                .HasForeignKey(d => d.AccountId)
+                .HasConstraintName("cart_ibfk_2");
+
+            entity.HasOne(d => d.IdNavigation).WithOne(p => p.CartIdNavigation)
                 .HasForeignKey<Cart>(d => d.Id)
                 .HasConstraintName("cart_ibfk_1");
         });
@@ -451,8 +459,6 @@ public partial class randox_dbContext : DbContext
 
             entity.ToTable("order");
 
-            entity.HasIndex(e => e.AccountId, "account_id");
-
             entity.HasIndex(e => e.CartId, "cart_id");
 
             entity.HasIndex(e => e.VoucherId, "voucher_id");
@@ -461,9 +467,6 @@ public partial class randox_dbContext : DbContext
                 .HasMaxLength(36)
                 .HasDefaultValueSql("uuid()")
                 .HasColumnName("id");
-            entity.Property(e => e.AccountId)
-                .HasMaxLength(36)
-                .HasColumnName("account_id");
             entity.Property(e => e.CartId)
                 .HasMaxLength(36)
                 .HasColumnName("cart_id");
@@ -492,10 +495,6 @@ public partial class randox_dbContext : DbContext
             entity.Property(e => e.VoucherId)
                 .HasMaxLength(36)
                 .HasColumnName("voucher_id");
-
-            entity.HasOne(d => d.Account).WithMany(p => p.Orders)
-                .HasForeignKey(d => d.AccountId)
-                .HasConstraintName("order_ibfk_1");
 
             entity.HasOne(d => d.Cart).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.CartId)

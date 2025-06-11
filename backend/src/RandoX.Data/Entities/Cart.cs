@@ -19,6 +19,10 @@ public partial class Cart
 
     public ulong? IsDeleted { get; set; }
 
+    public string AccountId { get; set; }
+
+    public virtual Account Account { get; set; }
+
     public virtual ICollection<CartProduct> CartProducts { get; set; } = new List<CartProduct>();
 
     public virtual Account IdNavigation { get; set; }
