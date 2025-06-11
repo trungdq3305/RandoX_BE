@@ -1,4 +1,5 @@
-﻿using RandoX.Common;
+﻿using Microsoft.EntityFrameworkCore;
+using RandoX.Common;
 using RandoX.Data.Entities;
 using RandoX.Data.Interfaces;
 using RandoX.Data.Models;
@@ -17,9 +18,11 @@ namespace RandoX.Service.Services
     public class ProductService : IProductService
     {
         private readonly IProductRepository _productRepository;
-        public ProductService(IProductRepository productRepository)
+        private readonly IAccountRepository _accountRepository;
+        public ProductService(IProductRepository productRepository, IAccountRepository accountRepository)
         {
             _productRepository = productRepository;
+            _accountRepository = accountRepository;
         }
         public async Task<ApiResponse<PaginationResult<Product>>> GetAllProductsAsync(int pageNumber, int pageSize)
         {
@@ -170,6 +173,20 @@ namespace RandoX.Service.Services
             {
                 return ApiResponse<Product>.Failure("Fail to delete promotion ");
             }
+        }
+
+        public async Task<ApiResponse<CartProduct>> AddProductToCartAsync(string userId, string productId)
+        {
+            var cart = await _accountRepository.GetCartByUserIdAsync(userId);
+            var cartProduct = new CartProduct
+            {
+                Id = Guid.NewGuid().ToString(),
+                CartId = cart.Id,
+                ProductId = productId
+            };
+            
+            var a = await _productRepository.AddProductToCartAsync(cartProduct);
+            return ApiResponse<CartProduct>.Success(a, "success");
         }
     }
 }

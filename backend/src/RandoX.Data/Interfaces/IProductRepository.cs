@@ -13,6 +13,7 @@ namespace RandoX.Data.Interfaces
         Task<IEnumerable<Product>> GetAllProductsAsync();
         Task<Product> GetProductByIdAsync(string id);
         Task<Product> UpdateProductAsync(Product product);
-
+        Task<CartProduct> AddProductToCartAsync(CartProduct cartProduct);
+        Task<CartProduct> UpdateCartProductAsync(CartProduct cartProduct);
     }
 }

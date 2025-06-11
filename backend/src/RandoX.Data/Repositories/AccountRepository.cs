@@ -75,5 +75,17 @@ namespace RandoX.Data.Repositories
                 .AnyAsync(a => a.Email == email && a.IsDeleted != 1);
         }
 
+        public async Task<Cart> CreateCartAsync(Cart cart)
+        {
+            await _context.Carts.AddAsync(cart);
+            await _context.SaveChangesAsync();
+            return cart;
+        }
+        public async Task<Cart> GetCartByUserIdAsync(string userId)
+        {
+            return await _context.Carts
+                .Include(a => a.Account)
+                .FirstOrDefaultAsync(a => a.AccountId == userId);
+        }
     }
 }

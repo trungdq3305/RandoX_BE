@@ -24,12 +24,12 @@ namespace RandoX.Data.Repositories
 
         public async Task<IEnumerable<Category>> GetAllCategoriesAsync()
         {
-            return await Entities.ToListAsync();
+            return await Entities.Where(a => a.IsDeleted != 1).ToListAsync();
         }
 
         public async Task<Category> GetCategoryByIdAsync(string id)
         {
-            return await Entities.FirstOrDefaultAsync(c => c.Id == id);
+            return await Entities.Where(a => a.IsDeleted != 1).FirstOrDefaultAsync(c => c.Id == id);
         }
 
         public async Task<Category> CreateCategoryAsync(Category category)

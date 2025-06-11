@@ -16,5 +16,7 @@ namespace RandoX.Data.Interfaces
         Task<Account> CreateAsync(Account account);
         Task<Account> UpdateAsync(Account account);
         Task<bool> EmailExistsAsync(string email);
+        Task<Cart> CreateCartAsync(Cart cart);
+        Task<Cart> GetCartByUserIdAsync(string userId);
     }
 }
