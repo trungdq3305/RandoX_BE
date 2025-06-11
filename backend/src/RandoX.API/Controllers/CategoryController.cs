@@ -17,9 +17,9 @@ namespace RandoX.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllCategories()
+        public async Task<IActionResult> GetAllCategories(int pageNumber, int pageSize)
         {
-            var response = await _categoryService.GetAllCategoriesAsync();
+            var response = await _categoryService.GetAllCategoriesAsync(pageNumber, pageSize);
             return Ok(response);
         }
 

@@ -1,4 +1,5 @@
-﻿using RandoX.Data.Entities;
+﻿using RandoX.Common;
+using RandoX.Data.Entities;
 using RandoX.Data.Interfaces;
 using RandoX.Data.Models;
 using RandoX.Data.Models.Category;
@@ -20,16 +21,17 @@ namespace RandoX.Service.Services
             _categoryRepository = categoryRepository;
         }
 
-        public async Task<ApiResponse<IEnumerable<Category>>> GetAllCategoriesAsync()
+        public async Task<ApiResponse<PaginationResult<Category>>> GetAllCategoriesAsync(int pageNumber, int pageSize)
         {
             try
             {
                 var categories = await _categoryRepository.GetAllCategoriesAsync();
-                return ApiResponse<IEnumerable<Category>>.Success(categories, "success");
+                var paginatedResult = new PaginationResult<Category>(categories.ToList(), categories.Count(), pageNumber, pageSize);
+                return ApiResponse<PaginationResult<Category>>.Success(paginatedResult, "success");
             }
             catch (Exception)
             {
-                return ApiResponse<IEnumerable<Category>>.Failure("Fail to get categories");
+                return ApiResponse<PaginationResult<Category>>.Failure("Fail to get categories");
             }
         }
 

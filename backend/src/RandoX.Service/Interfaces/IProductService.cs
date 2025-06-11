@@ -17,5 +17,7 @@ namespace RandoX.Service.Interfaces
         Task<ApiResponse<ProductRequest>> CreateProductAsync(ProductRequest productRequest);
         Task<ApiResponse<ProductRequest>> UpdateProductAsync(string id, ProductRequest productRequest);
         Task<ApiResponse<Product>> DeleteProductAsync(string id);
+        Task<ApiResponse<Product>> UpdateSetProToProductAsync(string id, string setId, string proId);
+        Task<ApiResponse<Product>> DeletePromotionAsync(string id);
     }
 }
