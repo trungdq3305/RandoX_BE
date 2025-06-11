@@ -17,9 +17,9 @@ namespace RandoX.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllManufacturers()
+        public async Task<IActionResult> GetAllManufacturers(int pageNumber, int pageSize)
         {
-            var response = await _manufacturerService.GetAllManufacturersAsync();
+            var response = await _manufacturerService.GetAllManufacturersAsync(pageNumber, pageSize);
             return Ok(response);
         }
 

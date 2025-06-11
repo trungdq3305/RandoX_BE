@@ -20,9 +20,17 @@ namespace RandoX.Common
             CurrentPage = pageSize <= 0 ? 0 : pageNumber;
             PageSize = pageSize <= 0 ? 0 : pageSize;
             TotalPages = (PageSize <= 0 || count <= 0) ? 0 : (int)Math.Ceiling(count / (double)PageSize);
-            Items = items.Skip((pageNumber - 1) * pageSize)
-                        .Take(pageSize)
-                           .ToList();
+            if(pageNumber == 0 && pageSize == 0)
+            {
+                Items = items;
+            }
+            else
+            {
+                Items = items.Skip((pageNumber - 1) * pageSize)
+                            .Take(pageSize)
+                               .ToList();
+            }
+                
         }
 
         // Phương thức để kiểm tra nếu có trang trước đó

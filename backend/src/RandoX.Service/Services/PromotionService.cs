@@ -1,4 +1,5 @@
-﻿using RandoX.Data.Entities;
+﻿using RandoX.Common;
+using RandoX.Data.Entities;
 using RandoX.Data.Interfaces;
 using RandoX.Data.Models;
 using RandoX.Data.Models.PromotionModel;
@@ -20,16 +21,18 @@ namespace RandoX.Service.Services
             _promotionRepository = promotionRepository;
         }
 
-        public async Task<ApiResponse<IEnumerable<Promotion>>> GetAllPromotionsAsync()
+        public async Task<ApiResponse<PaginationResult<Promotion>>> GetAllPromotionsAsync(int pageNumber, int pageSize)
         {
             try
             {
                 var promotions = await _promotionRepository.GetAllPromotionsAsync();
-                return ApiResponse<IEnumerable<Promotion>>.Success(promotions, "success");
+                var paginatedResult = new PaginationResult<Promotion>(promotions.ToList(), promotions.Count(), pageNumber, pageSize);
+
+                return ApiResponse<PaginationResult<Promotion>>.Success(paginatedResult, "success");
             }
             catch (Exception)
             {
-                return ApiResponse<IEnumerable<Promotion>>.Failure("Fail to get promotions");
+                return ApiResponse<PaginationResult<Promotion>>.Failure("Fail to get promotions");
             }
         }
 

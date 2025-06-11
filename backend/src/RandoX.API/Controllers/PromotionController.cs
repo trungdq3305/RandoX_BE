@@ -17,9 +17,9 @@ namespace RandoX.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllPromotions()
+        public async Task<IActionResult> GetAllPromotions(int pageNumber, int pageSize)
         {
-            var response = await _promotionService.GetAllPromotionsAsync();
+            var response = await _promotionService.GetAllPromotionsAsync(pageNumber, pageSize);
             return Ok(response);
         }
 

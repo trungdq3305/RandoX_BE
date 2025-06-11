@@ -90,7 +90,13 @@ builder.Services.AddSingleton<S3Service>(sp =>
     var config = sp.GetRequiredService<IConfiguration>();
     return new S3Service(config);
 });
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder =>
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader());
+});
 // VNPay Configuration
 builder.Services.Configure<VNPayConfig>(builder.Configuration.GetSection("VNPay"));
 builder.Services.AddScoped<IVNPayService, VNPayService>();
@@ -106,7 +112,7 @@ var app = builder.Build();
 
 
 app.UseHttpsRedirection();
-
+app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
 

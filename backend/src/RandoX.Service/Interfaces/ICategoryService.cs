@@ -1,4 +1,5 @@
-﻿using RandoX.Data.Entities;
+﻿using RandoX.Common;
+using RandoX.Data.Entities;
 using RandoX.Data.Models;
 using RandoX.Data.Models.Category;
 using System;
@@ -11,7 +12,7 @@ namespace RandoX.Service.Interfaces
 {
     public interface ICategoryService
     {
-        Task<ApiResponse<IEnumerable<Category>>> GetAllCategoriesAsync();
+        Task<ApiResponse<PaginationResult<Category>>> GetAllCategoriesAsync(int pageNumber, int pageSize);
         Task<ApiResponse<Category>> GetCategoryByIdAsync(string id);
         Task<ApiResponse<Category>> CreateCategoryAsync(CategoryRequest category);
         Task<ApiResponse<Category>> UpdateCategoryAsync(string id, CategoryRequest category);

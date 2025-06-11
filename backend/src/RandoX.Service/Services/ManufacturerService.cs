@@ -1,4 +1,5 @@
-﻿using RandoX.Data.Entities;
+﻿using RandoX.Common;
+using RandoX.Data.Entities;
 using RandoX.Data.Interfaces;
 using RandoX.Data.Models;
 using RandoX.Data.Models.ManufacturerModel;
@@ -20,16 +21,17 @@ namespace RandoX.Service.Services
             _manufacturerRepository = manufacturerRepository;
         }
 
-        public async Task<ApiResponse<IEnumerable<Manufacturer>>> GetAllManufacturersAsync()
+        public async Task<ApiResponse<PaginationResult<Manufacturer>>> GetAllManufacturersAsync(int pageNumber, int pageSize)
         {
             try
             {
                 var manufacturers = await _manufacturerRepository.GetAllManufacturersAsync();
-                return ApiResponse<IEnumerable<Manufacturer>>.Success(manufacturers, "success");
+                var paginatedResult = new PaginationResult<Manufacturer>(manufacturers.ToList(), manufacturers.Count(), pageNumber, pageSize);
+                return ApiResponse<PaginationResult<Manufacturer>>.Success(paginatedResult, "success");
             }
             catch (Exception)
             {
-                return ApiResponse<IEnumerable<Manufacturer>>.Failure("Fail to get manufacturers");
+                return ApiResponse<PaginationResult<Manufacturer>>.Failure("Fail to get manufacturers");
             }
         }
 

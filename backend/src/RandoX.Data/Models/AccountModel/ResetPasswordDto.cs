@@ -8,6 +8,6 @@ namespace RandoX.Data.Models.AccountModel
 {
     public class ResetPasswordDto
     {
-        public string Email { get; set; }
+        public string? Email { get; set; }
     }
 }
