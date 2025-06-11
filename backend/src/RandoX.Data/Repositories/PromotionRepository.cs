@@ -24,12 +24,12 @@ namespace RandoX.Data.Repositories
 
         public async Task<IEnumerable<Promotion>> GetAllPromotionsAsync()
         {
-            return await Entities.ToListAsync();
+            return await Entities.Where(a => a.IsDeleted !=1).ToListAsync();
         }
 
         public async Task<Promotion> GetPromotionByIdAsync(string id)
         {
-            return await Entities.FirstOrDefaultAsync(p => p.Id == id);
+            return await Entities.Where(a => a.IsDeleted != 1).FirstOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task<Promotion> CreatePromotionAsync(Promotion promotion)

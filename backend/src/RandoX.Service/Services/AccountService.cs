@@ -2,13 +2,15 @@
 using Microsoft.Extensions.Logging;
 using RandoX.Data.Entities;
 using RandoX.Data.Interfaces;
-using RandoX.Data.Models.AccountModel;
 using RandoX.Data.Models;
+using RandoX.Data.Models.AccountModel;
 using RandoX.Data.Repositories;
 using RandoX.Service.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -115,7 +117,13 @@ namespace RandoX.Service.Services
                 // Cập nhật status
                 account.Status = 1; // Active
                 await _accountRepository.UpdateAsync(account);
-
+                var cart = new Cart
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    TotalAmount = 0,
+                    AccountId = account.Id,
+                };
+                await _accountRepository.CreateCartAsync(cart);
                 // Đánh dấu token đã sử dụng
                 var tokenEntity = await _tokenRepository.GetTokenAsync(confirmDto.Token, "EmailConfirmation");
                 tokenEntity.IsUsed = 1;
@@ -262,5 +270,12 @@ namespace RandoX.Service.Services
             rng.GetBytes(bytes);
             return Convert.ToBase64String(bytes).Replace("/", "_").Replace("+", "-").Replace("=", "");
         }
+
+        public async Task<Account> GetAccountByEmailAsync(string email)
+        {
+            return await _accountRepository.GetByEmailAsync(email);
+        }
+
+
     }
 }
