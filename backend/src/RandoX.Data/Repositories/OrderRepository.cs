@@ -23,7 +23,7 @@ namespace RandoX.Data.Repositories
 
         public async Task<Order> GetOrderByIdAsync(string orderId)
         {
-            return await Entities.FirstOrDefaultAsync(o => o.Id == orderId);
+            return await Entities.Where(a => a.IsDeleted != 1).FirstOrDefaultAsync(o => o.Id == orderId);
         }
     }
 }

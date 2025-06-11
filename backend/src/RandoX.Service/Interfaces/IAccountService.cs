@@ -19,5 +19,6 @@ namespace RandoX.Service.Interfaces
         Task<ApiResponse<bool>> RequestPasswordChangeAsync(ChangePasswordDto changeDto);
         Task<ApiResponse<bool>> ConfirmPasswordResetAsync(string token, string newPassword);
         Task<ApiResponse<bool>> ConfirmPasswordChangeAsync(string token);
+        Task<Account> GetAccountByEmailAsync(string email);
     }
 }

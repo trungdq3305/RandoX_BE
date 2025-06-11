@@ -26,7 +26,7 @@ namespace RandoX.Data.Repositories
 
         public async Task<IEnumerable<Product>> GetAllProductsAsync()
         {
-            var products = await Entities
+            var products = await Entities.Where(a => a.IsDeleted != 1)
                 //.Include(p => p.Manufacturer)
                 //.Include(p => p.ProductSet)
                 //.Include(p => p.Promotion)
@@ -40,6 +40,7 @@ namespace RandoX.Data.Repositories
                 .Include(p => p.ProductSet)
                 .Include(p => p.Promotion)
                 .Include(p => p.Category)
+                .Where(a => a.IsDeleted != 1)
                 .FirstOrDefaultAsync(p => p.Id == id);
             return product;
         }
@@ -54,6 +55,19 @@ namespace RandoX.Data.Repositories
             Entities.Update(product);
             await _uow.SaveChangesAsync();
             return product;
+        }
+
+        public async Task<CartProduct> AddProductToCartAsync(CartProduct cartProduct)
+        {
+            _context.CartProducts.Add(cartProduct);
+            await _uow.SaveChangesAsync();
+            return cartProduct;
+        }
+        public async Task<CartProduct> UpdateCartProductAsync(CartProduct cartProduct)
+        {
+            _context.CartProducts.Update(cartProduct);
+            await _uow.SaveChangesAsync();
+            return cartProduct;
         }
     }
 }

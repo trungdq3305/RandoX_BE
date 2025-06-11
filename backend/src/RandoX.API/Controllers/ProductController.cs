@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using RandoX.Data.Models.ProductModel;
 using RandoX.Service.Interfaces;
+using RandoX.Service.Services;
+using System.Security.Claims;
 
 namespace RandoX.API.Controllers
 {
@@ -9,10 +11,11 @@ namespace RandoX.API.Controllers
     public class ProductController : BaseAPIController
     {
         private readonly IProductService _productService;
-
-        public ProductController(IProductService productService)
+        private readonly IAccountService _accountService;
+        public ProductController(IProductService productService, IAccountService accountService)
         {
             _productService = productService;
+            _accountService = accountService;
         }
 
         [HttpGet]
@@ -58,6 +61,22 @@ namespace RandoX.API.Controllers
         public async Task<IActionResult> DeletePromotion(string id)
         {
             var productResponse = await _productService.DeletePromotionAsync(id);
+            return Ok(productResponse);
+        }
+
+        [HttpPost("add-to-cart")]
+        public async Task<IActionResult> AddProducttoCart(string productId)
+        {
+            var identity = this.HttpContext.User.Identity as ClaimsIdentity;
+
+            if (identity == null || !identity.IsAuthenticated)
+                return Unauthorized("Bạn chưa đăng nhập");
+
+            var claims = identity.Claims;
+            var email = claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
+            var user = await _accountService.GetAccountByEmailAsync(email);
+
+            var productResponse = await _productService.AddProductToCartAsync(user.Id, productId);
             return Ok(productResponse);
         }
     }
