@@ -24,6 +24,7 @@ namespace RandoX.Service
             service.AddTransient<IManufacturerService, ManufacturerService>();
             service.AddTransient<ICategoryService, CategoryService>();
             service.AddTransient<IProductService, ProductService>();
+            service.AddTransient<IProductSetService, ProductSetService>();
             return service;
         }
     }

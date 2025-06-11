@@ -47,5 +47,18 @@ namespace RandoX.API.Controllers
             var productResponse = await _productService.DeleteProductAsync(id);
             return Ok(productResponse);
         }
+        [HttpPut("productset-promotion")]
+        public async Task<IActionResult> UpdateManuProToProduct([FromQuery] string id, [FromQuery] string? setId, [FromQuery] string? proId)
+        {
+            var productResponse = await _productService.UpdateSetProToProductAsync(id, setId, proId);
+            return Ok(productResponse);
+        }
+
+        [HttpDelete("promotion")]
+        public async Task<IActionResult> DeletePromotion(string id)
+        {
+            var productResponse = await _productService.DeletePromotionAsync(id);
+            return Ok(productResponse);
+        }
     }
 }

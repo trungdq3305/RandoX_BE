@@ -1,4 +1,5 @@
-﻿using RandoX.Data.Entities;
+﻿using RandoX.Common;
+using RandoX.Data.Entities;
 using RandoX.Data.Models;
 using RandoX.Data.Models.PromotionModel;
 using System;
@@ -11,7 +12,7 @@ namespace RandoX.Service.Interfaces
 {
     public interface IPromotionService
     {
-        Task<ApiResponse<IEnumerable<Promotion>>> GetAllPromotionsAsync();
+        Task<ApiResponse<PaginationResult<Promotion>>> GetAllPromotionsAsync(int pageNumber, int pageSize);
         Task<ApiResponse<Promotion>> GetPromotionByIdAsync(string id);
         Task<ApiResponse<Promotion>> CreatePromotionAsync(PromotionRequest promotion);
         Task<ApiResponse<Promotion>> UpdatePromotionAsync(string id, PromotionRequest promotion);

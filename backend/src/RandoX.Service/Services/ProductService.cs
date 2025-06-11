@@ -113,5 +113,63 @@ namespace RandoX.Service.Services
                 return ApiResponse<Product>.Failure("Fail to delete product ");
             }
         }
+
+        public async Task<ApiResponse<Product>> UpdateSetProToProductAsync(string id, string setId, string proId)
+        {
+            try
+            {
+                Product product = await _productRepository.GetProductByIdAsync(id);
+                if (setId != null)
+                {
+                    product.ProductSetId = setId;
+                }
+                if (proId != null)
+                {
+                    var pros = await _productRepository.GetAllProductsAsync();
+                    int flag = 0;
+                    foreach (var item in pros)
+                    {
+                        if (item.ProductSetId == setId ) 
+                        { 
+                            flag++;
+                        }
+                    }
+                    if (flag == 0)
+                    {
+                        product.PromotionId = proId;
+                    }
+                    else
+                    {
+                        return ApiResponse<Product>.Failure("Set already hasve product");
+                    }
+                }
+
+                await _productRepository.UpdateProductAsync(product);
+
+                return ApiResponse<Product>.Success(product, "success");
+            }
+            catch (Exception)
+            {
+                return ApiResponse<Product>.Failure("Fail to update product ");
+            }
+        }
+        public async Task<ApiResponse<Product>> DeletePromotionAsync(string id)
+        {
+            try
+            {
+                Product product = await _productRepository.GetProductByIdAsync(id);
+
+                        product.PromotionId = null;
+                
+
+                await _productRepository.UpdateProductAsync(product);
+
+                return ApiResponse<Product>.Success(product, "success");
+            }
+            catch (Exception)
+            {
+                return ApiResponse<Product>.Failure("Fail to delete promotion ");
+            }
+        }
     }
 }
