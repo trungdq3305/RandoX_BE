@@ -358,3 +358,9 @@ CREATE TABLE email_token (
     INDEX idx_token_type (token_type),
     INDEX idx_expiry_date (expiry_date)
 );
+
+ALTER TABLE `order` DROP FOREIGN KEY `order_ibfk_1`;
+ALTER TABLE `order` DROP COLUMN `account_id`;
+ALTER TABLE `cart`
+ADD COLUMN account_id VARCHAR(36),
+ADD FOREIGN KEY (account_id) REFERENCES account(id);
