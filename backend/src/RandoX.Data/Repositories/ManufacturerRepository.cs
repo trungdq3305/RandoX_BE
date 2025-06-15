@@ -24,12 +24,12 @@ namespace RandoX.Data.Repositories
 
         public async Task<IEnumerable<Manufacturer>> GetAllManufacturersAsync()
         {
-            return await Entities.ToListAsync();
+            return await Entities.Where(a => a.IsDeleted != 1).ToListAsync();
         }
 
         public async Task<Manufacturer> GetManufacturerByIdAsync(string id)
         {
-            return await Entities.FirstOrDefaultAsync(m => m.Id == id);
+            return await Entities.Where(a => a.IsDeleted != 1).FirstOrDefaultAsync(m => m.Id == id);
         }
 
         public async Task<Manufacturer> CreateManufacturerAsync(Manufacturer manufacturer)

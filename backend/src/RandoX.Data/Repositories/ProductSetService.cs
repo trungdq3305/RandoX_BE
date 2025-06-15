@@ -24,12 +24,12 @@ namespace RandoX.Data.Repositories
 
         public async Task<IEnumerable<ProductSet>> GetAllProductSetsAsync()
         {
-            return await Entities.ToListAsync();
+            return await Entities.Where(a => a.IsDeleted != 1).ToListAsync();
         }
 
         public async Task<ProductSet> GetProductSetByIdAsync(string id)
         {
-            return await Entities.FirstOrDefaultAsync(ps => ps.Id == id);
+            return await Entities.Where(a => a.IsDeleted != 1).FirstOrDefaultAsync(ps => ps.Id == id);
         }
 
         public async Task<ProductSet> CreateProductSetAsync(ProductSet productSet)
